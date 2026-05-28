@@ -1,0 +1,38 @@
+/* 1. Import HG Insights Official Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* 2. Global Base Adjustments */
+:root {
+  --slidev-theme-primary: #003366; /* HG Navy */
+  --slidev-theme-background: #FFFFFF;
+}
+
+/* Force everything to use Nunito Sans */
+html, body, .slidev-layout {
+  font-family: 'Nunito Sans', Arial, sans-serif !important;
+  color: #424242; /* HG Dark Gray body text */
+}
+
+/* 3. Typography Overrides */
+h1 {
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #003366 !important; /* Single header rule: always Navy on white slides */
+  margin-bottom: 1rem !important;
+}
+
+/* 4. List Styling (Matches Brand Guidelines) */
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* 5. Hide default Slidev footer elements to keep the canvas clean */
+.slidev-page-number {
+  display: none !important;
+}
