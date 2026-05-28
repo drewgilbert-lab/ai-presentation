@@ -80,7 +80,7 @@ These rules are enforced by the theme, build, and `commit-deck.js` validation.
 
 - `theme:` frontmatter (use `layout:` only)
 - Layouts other than `cover` and `default`
-- Custom CSS (`<style>`, `@import`), inline `style="..."` attributes
+- Custom CSS (`<style>`, `@import`), inline `style="..."` except chart dimensions (`height`/`width` on bar/progress elements)
 - Non-brand hex/rgb/hsl colors
 - Custom Vue components not in `hg-theme/components/`
 - External image URLs (logos are provided by the theme)

@@ -4,7 +4,15 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
-### Fixed — Viewer chrome and card styling (2026-05-28)
+### Changed — Creative deck generation prompts and chart-friendly validation (2026-05-28)
+
+- [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md) — reframed around three-layer design philosophy (layouts → components → HTML/UnoCSS freedom); added mandatory layout variety rules, charts/Mermaid/CSS bar chart guidance, icons section; demoted card-grid shortcuts from default; `marketing.md` is format-only reference
+- [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md) — aligned with skill: layout variety mandate, creative freedom, Mermaid/CSS charts, chart dimension inline styles allowed
+- [`scripts/commit-deck.js`](scripts/commit-deck.js) — inline `style` validation now allows chart dimension properties only (`height`, `width`, `min-*`, `max-*`, `flex-basis`); warns on color/font/spacing inline styles
+- [`.cursorrules`](.cursorrules) — deck forbidden patterns updated to match chart dimension inline style exception
+
+---
+
 
 - **Problem:** Slide outline stayed visible top-right by default; `hg-card` blocks showed red/blue accent bars above navy headers; letterbox areas beside the slide were black in fullscreen.
 - **Fix:**

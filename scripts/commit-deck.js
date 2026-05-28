@@ -12,6 +12,16 @@ const BRAND_HEX = new Set([
   'fff', 'ffffff',
 ]);
 
+const CHART_DIMENSION_PROPS = new Set([
+  'height',
+  'width',
+  'min-height',
+  'max-height',
+  'min-width',
+  'max-width',
+  'flex-basis',
+]);
+
 function parseArgs(argv) {
   const args = { file: null, name: null };
   for (let i = 2; i < argv.length; i++) {
@@ -52,6 +62,30 @@ function expandHex(hex) {
   return h;
 }
 
+function findDisallowedInlineStyles(content) {
+  const disallowed = new Set();
+  const styleMatches = content.matchAll(/\bstyle\s*=\s*(["'])([\s\S]*?)\1/gi);
+
+  for (const [, , styleValue] of styleMatches) {
+    const declarations = styleValue.split(';').map((part) => part.trim()).filter(Boolean);
+
+    for (const declaration of declarations) {
+      const colonIndex = declaration.indexOf(':');
+      if (colonIndex === -1) {
+        disallowed.add(declaration);
+        continue;
+      }
+
+      const prop = declaration.slice(0, colonIndex).trim().toLowerCase();
+      if (!CHART_DIMENSION_PROPS.has(prop)) {
+        disallowed.add(prop);
+      }
+    }
+  }
+
+  return [...disallowed];
+}
+
 function validateDeckName(name) {
   if (!KEBAB_CASE.test(name)) {
     throw new Error(`Deck name "${name}" must be kebab-case (e.g. q3-strategy)`);
@@ -82,8 +116,11 @@ function warnSuspiciousPatterns(content) {
     warnings.push('Contains <style> block — custom CSS is forbidden');
   }
 
-  if (/\bstyle\s*=/i.test(content)) {
-    warnings.push('Contains inline style attribute — use UnoCSS classes instead');
+  const disallowedInlineStyles = findDisallowedInlineStyles(content);
+  if (disallowedInlineStyles.length > 0) {
+    warnings.push(
+      `Contains disallowed inline style properties: ${disallowedInlineStyles.join(', ')} — use UnoCSS classes (chart height/width only is allowed)`,
+    );
   }
 
   if (/^theme:\s*/m.test(content)) {
