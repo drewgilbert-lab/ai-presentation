@@ -1,6 +1,4 @@
-import { defineConfig } from 'unocss'
-
-export default defineConfig({
+export default {
   theme: {
     colors: {
       hg: {
@@ -26,4 +24,4 @@ export default defineConfig({
     'hg-card-header': 'bg-hg-navy text-white font-bold text-[18px] px-4 py-3',
     'hg-card-body': 'px-4 py-4 text-[14px] text-hg-dark',
   }
-})
+}
