@@ -5,6 +5,9 @@
       "fonts": {
         "sans": "Nunito Sans",
         "local": "Nunito Sans"
+      },
+      "drawings": {
+        "presenterOnly": true
       }
     }
   }

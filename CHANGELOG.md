@@ -4,15 +4,29 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Fixed — Content scaling, footer spacing, and collapsible nav (2026-05-28)
+
+- **Problem:** After the initial footer buffer fix, dense slides still had content clipped rather than resized. Footer reserved too much bottom space. A persistent slide outline appeared top-right with no way to hide it.
+- **Fix:**
+  - Added [`hg-theme/components/HgFitContent.vue`](hg-theme/components/HgFitContent.vue) — auto-scales slide body content down (min 55%) to fit the area above the footer instead of clipping
+  - Integrated `HgFitContent` into [`hg-theme/layouts/default.vue`](hg-theme/layouts/default.vue)
+  - Reduced footer buffer by ~50%: `h-7` + `mt-3` + `pb-3` (was `h-14` + `mt-6` + `pb-6`)
+  - Added [`hg-theme/global-top.vue`](hg-theme/global-top.vue) — collapsible **Outline** (slide TOC) and **Controls** (Slidev play UI) toggles, hidden by default, state persisted in `localStorage`
+  - CSS in [`hg-theme/style.css`](hg-theme/style.css) hides in-slide TOC overlays and default controls until toggled
+  - Set `drawings.presenterOnly: true` in [`hg-theme/package.json`](hg-theme/package.json) to hide drawing toolbar in play mode
+- Updated design docs: auto-scale behavior, ~52px footer safe zone, no embedded `<Toc>` in decks
+
+---
+
 ### Fixed — Default layout footer (2026-05-28)
 
 - **Problem:** Body content on dense slides (e.g. 2×2 card grids) overflowed into the footer, overlapping the logo, copyright text, and page number. Footer logo was bottom-aligned while copyright and page number were vertically misaligned.
 - **Fix:** Restructured [`hg-theme/layouts/default.vue`](hg-theme/layouts/default.vue) as a flex column per [Slidev layout conventions](https://sli.dev/guide/layout):
-  - Body content in a `flex-1 min-h-0 overflow-hidden` zone — content cannot enter the footer band
-  - Fixed footer bar (`h-14` + `mt-6` gap) with `flex items-center` for vertical alignment of logo, copyright, and slide number
+  - Body content in a dedicated upper zone separated from the footer band
+  - Fixed footer bar with `flex items-center` for vertical alignment of logo, copyright, and slide number
   - Logo constrained with `max-h-10` to align with 9px footer text
 - Added supporting CSS in [`hg-theme/style.css`](hg-theme/style.css) for `.default-layout-content` and `.default-layout-footer`
-- Updated design docs with **content safe zone** guidance (~80px reserved at bottom of content slides):
+- Updated design docs with **content safe zone** guidance:
   - [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md)
   - [`.cursorrules`](.cursorrules)
   - [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md)
@@ -153,4 +167,4 @@ Completed **Phase 3 (Pipeline Stabilization)** and **Phase 4 (LLM Integration)**
 
 4. **E2E with real GitHub token** — Full pipeline test (Claude → commit-deck → Vercel → live URL) requires a GitHub PAT in `.env`. See README for setup.
 
-5. **Dense slide content** — Footer overflow is now prevented by layout clipping; very dense slides may still clip content at the bottom. Prefer compact spacing or split across slides (see skill safe-zone guidance).
+5. **Dense slide content** — Footer overflow is prevented by layout separation; content auto-scales via `HgFitContent` (min 55%). Extremely dense slides may still need to be split across two slides.

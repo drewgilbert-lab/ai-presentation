@@ -105,7 +105,7 @@ For complex visuals, compose HTML + brand UnoCSS classes — do not create new V
 
 ### Content safe zone
 
-Default-layout slides reserve ~80px at the bottom for the footer. Body content cannot overflow into it. Keep dense slides compact (`gap-4` on grids, one primary visual block per slide).
+Default-layout slides reserve ~52px at the bottom for the footer. Body content auto-scales to fit above it. Slide outline and play controls are hidden by default — toggled via **Outline** / **Controls** buttons (top-right).
 
 ### Logo assets
 
@@ -171,7 +171,7 @@ npx slidev decks/marketing.md --theme hg-theme     # Preview single deck
 - Run `npm run build` after changes to build, theme, or decks
 - Reference `.cursor/skills/hg-slidev-deck/SKILL.md` when generating or editing decks
 - Update `vercel.json` when adding decks
-- Update `CHANGELOG.md` for significant pipeline or theme changes
+- **Always update [`CHANGELOG.md`](CHANGELOG.md) after every change** — add an entry under `[Unreleased]` describing what changed and why
 - Keep secrets in `.env` (never commit `.env` or tokens)
 
 ### Do not

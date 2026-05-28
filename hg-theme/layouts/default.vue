@@ -2,19 +2,21 @@
 import logoBlue from '../public/HGInsights-Logo-blue.svg'
 </script>
 <template>
-  <div class="slidev-layout default bg-white text-hg-dark h-full w-full flex flex-col px-12 pt-12 pb-6">
-    <div class="default-layout-content flex-1 min-h-0 overflow-hidden">
-      <slot />
+  <div class="slidev-layout default bg-white text-hg-dark h-full w-full flex flex-col px-12 pt-12 pb-3">
+    <div class="default-layout-content flex-1 min-h-0">
+      <HgFitContent>
+        <slot />
+      </HgFitContent>
     </div>
 
-    <footer class="default-layout-footer relative flex-shrink-0 flex items-center justify-between h-14 mt-6 text-[9px] text-[#818282]">
+    <footer class="default-layout-footer relative flex-shrink-0 flex items-center justify-between h-7 mt-3 text-[9px] text-[#818282]">
       <img
         :src="logoBlue"
-        class="w-[1.55in] max-h-10 object-contain object-left flex-shrink-0"
+        class="w-[1.55in] max-h-5 object-contain object-left flex-shrink-0"
         alt="HG Insights"
       />
 
-      <p class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap m-0">
+      <p class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap m-0 leading-none">
         ©2026 HG Insights proprietary and confidential.
       </p>
 

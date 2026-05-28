@@ -27,9 +27,9 @@ Your content sits inside the layout slot. Design **within** that canvas.
 
 ### Content safe zone (default layout)
 
-The default layout uses a flex column: body content fills the upper area; a **fixed footer band** (~56px + 24px gap) is reserved at the bottom. Content above the footer is clipped — it cannot overlap the footer.
+The default layout uses a flex column: body content fills the upper area and **auto-scales down** to fit above the footer; a **fixed footer band** (~40px + 12px gap) is reserved at the bottom.
 
-- Do **not** add your own footer, logo, copyright, or page numbers on content slides.
+- Do **not** add your own footer, logo, copyright, page numbers, or slide outline on content slides — use the theme's collapsible **Outline** button (top-right) if needed.
 - Keep dense slides compact: use `gap-4` on 2×2 grids, shorten card body text, avoid stacking multiple large `mt-8` blocks.
 - One primary visual block per slide (e.g. a 2×2 card grid OR a stat row OR a two-column split — not all three).
 - If content feels tight, split across two slides rather than filling to the bottom edge.

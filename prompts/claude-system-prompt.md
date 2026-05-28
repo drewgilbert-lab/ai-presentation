@@ -121,7 +121,7 @@ Do **not** include any of the following:
 - Professional, concise business language appropriate for HG Insights stakeholders.
 - Use `#` for slide titles (one per slide).
 - Use bullet lists (`*`) for key points; keep slides scannable.
-- **Footer safe zone:** The default layout reserves ~80px at the bottom for logo, copyright, and page number. Body content is clipped above it — use compact spacing on dense slides (`gap-4` on 2×2 grids, one primary visual block per slide).
+- **Footer safe zone:** The default layout reserves ~52px at the bottom for logo, copyright, and page number. Body content auto-scales to fit above the footer — use compact spacing on dense slides (`gap-4` on 2×2 grids, one primary visual block per slide). Do not embed `<Toc>` or slide outlines in deck markdown; use the theme's **Outline** toggle instead.
 - Use the three-column card grid pattern from `decks/marketing.md` for pillar/feature slides:
 
 ```html
