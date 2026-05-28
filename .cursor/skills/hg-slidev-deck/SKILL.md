@@ -49,7 +49,7 @@ Your content sits inside the layout slot. Design **within** that canvas.
 
 The default layout uses a flex column: body content fills the upper area and **auto-scales down** to fit above the footer; a **fixed footer band** (~40px + 12px gap) is reserved at the bottom.
 
-- Do **not** add your own footer, logo, copyright, page numbers, or slide outline on content slides — use the theme's collapsible **Outline** button (top-right) if needed.
+- Do **not** add your own footer, logo, copyright, page numbers, or slide outline on content slides — the theme provides **Shift+O** for slide outline when presenting.
 - Dense slides auto-scale above the footer — split across slides rather than cramming.
 - **Visual density is content-driven:** a data slide may combine a chart + legend + callout; a narrative slide may be mostly prose with one accent element.
 - If content feels tight, split across two slides rather than filling to the bottom edge.
@@ -225,10 +225,75 @@ Use Markdown tables for structured comparisons; wrap in bordered containers when
 
 ## Icons and visual accents
 
+Use the theme icon library via `<HgIcon>` — 30 brand SVGs in `hg-theme/public/icons/`.
+
+```html
+<HgIcon name="market-sizing" />
+<HgIcon name="ai-copilot" size="64px" />
+<HgIcon name="gtm-efficiency" class="w-16 h-16" />
+```
+
+**Available icons** (use the `name` value exactly):
+
+| `name` | Use for |
+|--------|---------|
+| `ai-assisted-gtm` | AI-assisted GTM |
+| `ai-copilot` | AI copilot |
+| `ai-infrastructure` | AI infrastructure |
+| `b2b-data` | B2B data |
+| `beyond-tech` | Beyond tech |
+| `buyer-intent` | Buyer intent |
+| `career-growth` | Career growth |
+| `challenge` | Challenge / problem |
+| `competitive-analysis` | Competitive analysis |
+| `config-wizard` | Config wizard |
+| `culture-club` | Culture |
+| `customer-voice` | Customer voice |
+| `gtm-efficiency` | GTM efficiency |
+| `gtm-modernization` | GTM modernization |
+| `icp-creation` | ICP creation |
+| `in-market-lg` | In-market lead gen |
+| `insight-visualization` | Insight visualization |
+| `invest-future` | Invest in future |
+| `lead-generation` | Lead generation |
+| `market-opps` | Market opportunities |
+| `market-sizing` | Market sizing / TAM |
+| `maximize-abm` | Maximize ABM |
+| `mind-body` | Mind & body / wellness |
+| `predictive-modeling` | Predictive modeling |
+| `solution` | Solution |
+| `take-ownership` | Take ownership |
+| `territory-planning` | Territory planning |
+| `voice-customer` | Voice of customer |
+| `whitespace-analysis` | Whitespace analysis |
+| `youre-covered` | Coverage / assurance |
+
+**Icon row example:**
+
+```html
+<div class="flex items-start gap-6 mt-8">
+  <div class="flex flex-col items-center gap-2 w-28 text-center">
+    <HgIcon name="market-sizing" size="56px" />
+    <div class="text-[13px] font-bold text-hg-navy">Size the market</div>
+  </div>
+  <div class="flex flex-col items-center gap-2 w-28 text-center">
+    <HgIcon name="icp-creation" size="56px" />
+    <div class="text-[13px] font-bold text-hg-navy">Define ICP</div>
+  </div>
+  <div class="flex flex-col items-center gap-2 w-28 text-center">
+    <HgIcon name="territory-planning" size="56px" />
+    <div class="text-[13px] font-bold text-hg-navy">Plan territories</div>
+  </div>
+</div>
+```
+
+**Also allowed:**
+
 - **Unicode symbols** for simple semantics (→ ✓ ⚠) — use sparingly, executive tone.
 - **Inline SVG** with `fill="currentColor"` + `text-hg-royal` / `text-hg-navy` on the wrapper.
 - **CSS shapes** — circles, chevrons, numbered badges, dot indicators.
-- **Do not** use external image URLs or `<img src="https://...">`. Logos come from the theme.
+
+**Do not** use external image URLs or `<img src="https://...">`. Logos and icons come from the theme.
 
 ---
 
@@ -410,8 +475,8 @@ These will break the build or fail validation in `scripts/commit-deck.js`:
 | Non-brand hex/rgb/hsl colors | Brand guardrail |
 | `theme:` frontmatter | Use `layout:` only |
 | Layouts other than `cover`, `default` | Theme only provides these |
-| Custom Vue components (e.g. `<MyChart>`) | Not in repo; will fail at build |
-| External image URLs | Unreliable; logos come from theme |
+| Custom Vue components (e.g. `<MyChart>`) | Not in repo; will fail at build — use `HgStatBox`, `HgIcon` only |
+| External image URLs | Unreliable; logos and icons come from theme |
 | `<script>` tags | Not supported in deck markdown |
 
 **Allowed exception:** inline `style` on chart elements for **dimension properties only** — `height`, `width`, `min-height`, `max-height`, `min-width`, `max-width`, `flex-basis` (e.g. bar chart heights, progress bar widths). Never use inline styles for colors.

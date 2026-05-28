@@ -4,6 +4,20 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Added — Theme icon library for decks (2026-05-28)
+
+- [`hg-theme/public/icons/`](hg-theme/public/icons/) — 30 brand SVG icons copied from Downloads and normalized to kebab-case filenames
+- [`hg-theme/components/HgIcon.vue`](hg-theme/components/HgIcon.vue) — `<HgIcon name="..." />` component for deck use; supports `size` prop or UnoCSS sizing classes
+- [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md), [`.cursorrules`](.cursorrules), [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md), [`scripts/commit-deck.js`](scripts/commit-deck.js) — document icon catalog and allow `HgIcon` in deck validation
+
+### Fixed — Nav chrome hidden on load, keyboard-only access (2026-05-28)
+
+- **Problem:** Outline/Controls toggle buttons stayed visible top-right on every page load; outline open state persisted in `localStorage`.
+- **Fix:**
+  - [`hg-theme/global-top.vue`](hg-theme/global-top.vue) — removed visible toggle buttons and `localStorage` persistence; slide outline panel opens only via **Shift+O**, Slidev play controls via **Shift+C**, **Escape** closes outline
+  - [`hg-theme/style.css`](hg-theme/style.css) — hide `.hg-global-nav` until outline is opened
+  - Updated [`.cursorrules`](.cursorrules), skill, and system prompt with shortcut references
+
 ### Added — Invoca CXO deck (2026-05-28)
 
 - [`decks/invoca-cxo.md`](decks/invoca-cxo.md) — CMO-targeted Invoca presentation deck

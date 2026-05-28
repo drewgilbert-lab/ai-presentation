@@ -74,7 +74,7 @@ These rules are enforced by the theme, build, and `commit-deck.js` validation.
 - Brand color tokens: `text-hg-navy`, `bg-hg-gray`, `border-hg-royal`, etc.
 - Layout utilities: `grid`, `flex`, `gap-*`, `mt-*`, etc.
 - Slidev `v-click` for progressive reveal
-- Component: `<HgStatBox num="..." label="..." />` only
+- Components: `<HgStatBox num="..." label="..." />`, `<HgIcon name="..." />` (theme icons in `hg-theme/public/icons/`)
 
 ### Forbidden in deck content
 
@@ -83,7 +83,7 @@ These rules are enforced by the theme, build, and `commit-deck.js` validation.
 - Custom CSS (`<style>`, `@import`), inline `style="..."` except chart dimensions (`height`/`width` on bar/progress elements)
 - Non-brand hex/rgb/hsl colors
 - Custom Vue components not in `hg-theme/components/`
-- External image URLs (logos are provided by the theme)
+- External image URLs (logos and icons are provided by the theme)
 - `<script>` tags
 
 ### Canonical reference
@@ -105,7 +105,7 @@ For complex visuals, compose HTML + brand UnoCSS classes — do not create new V
 
 ### Content safe zone
 
-Default-layout slides reserve ~52px at the bottom for the footer. Body content auto-scales to fit above it. Slide outline and play controls are hidden by default — toggled via **Outline** / **Controls** buttons (top-right).
+Default-layout slides reserve ~52px at the bottom for the footer. Body content auto-scales to fit above it. Slide outline and play controls are hidden on load — **Shift+O** (outline), **Shift+C** (controls), **Escape** (close outline).
 
 ### Logo assets
 

@@ -146,6 +146,8 @@ Use Markdown tables for structured comparisons.
 
 ## Icons and visual accents
 
+Use theme icons via `<HgIcon name="market-sizing" />` — see `.cursor/skills/hg-slidev-deck/SKILL.md` for the full icon catalog (30 SVGs).
+
 - Unicode symbols (→ ✓) sparingly for executive tone
 - Inline SVG with `fill="currentColor"` + brand text color classes
 - CSS shapes (circles, chevrons, numbered badges)
@@ -160,8 +162,8 @@ Do **not** include any of the following:
 - Non-brand hex/rgb/hsl colors (e.g. `#ff0000`, `rgb(255,0,0)`)
 - `theme: default` or any `theme:` frontmatter
 - Layouts other than `cover` and `default`
-- Custom Vue components other than `HgStatBox`
-- External images or assets (logos are provided by the theme)
+- Custom Vue components other than `HgStatBox` and `HgIcon`
+- External images or assets (logos and icons are provided by the theme)
 - JavaScript blocks or `<script>` tags
 
 ## Content guidelines
@@ -169,7 +171,7 @@ Do **not** include any of the following:
 - Professional, concise business language appropriate for HG Insights stakeholders.
 - Use `#` for slide titles (one per slide).
 - Use bullet lists (`*`) for key points; keep slides scannable.
-- **Footer safe zone:** The default layout reserves ~52px at the bottom for logo, copyright, and page number. Body content auto-scales to fit above the footer. Do not embed `<Toc>` or slide outlines in deck markdown; use the theme's **Outline** toggle instead.
+- **Footer safe zone:** The default layout reserves ~52px at the bottom for logo, copyright, and page number. Body content auto-scales to fit above the footer. Do not embed `<Toc>` or slide outlines in deck markdown; presenters use **Shift+O** for the theme slide outline.
 - Typical deck length: 3–12 slides depending on depth (cover + content slides).
 - Cover slide: title on `#` line, subtitle as plain text on the next line (no extra heading levels).
 

@@ -149,9 +149,9 @@ function warnSuspiciousPatterns(content) {
   const componentMatches = content.match(/<[A-Z][A-Za-z0-9]*/g) || [];
   const unknownComponents = [...new Set(componentMatches)]
     .map((tag) => tag.slice(1))
-    .filter((name) => name !== 'HgStatBox' && name !== 'div');
+    .filter((name) => name !== 'HgStatBox' && name !== 'HgIcon' && name !== 'div');
   if (unknownComponents.length > 0) {
-    warnings.push(`Unknown components: ${unknownComponents.join(', ')} — only HgStatBox is allowed`);
+    warnings.push(`Unknown components: ${unknownComponents.join(', ')} — only HgStatBox and HgIcon are allowed`);
   }
 
   return warnings;

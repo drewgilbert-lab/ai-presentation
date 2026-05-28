@@ -56,7 +56,15 @@ li {
   will-change: transform;
 }
 
-/* Hide slide outline everywhere unless user toggles Outline (global-top) */
+/* Hide slide outline everywhere unless opened via Shift+O (global-top.vue) */
+.hg-global-nav {
+  display: none !important;
+}
+
+body.hg-show-slide-nav .hg-global-nav {
+  display: block !important;
+}
+
 .slidev-toc,
 .hg-slide-nav-panel {
   display: none !important;
