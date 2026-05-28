@@ -15,13 +15,16 @@ const files = fs.readdirSync(decksFolder)
 
 console.log(`Found ${files.length} presentations inside "decks/":`, files);
 
-// 2. Loop through each file and build it dynamically
+// 2. Loop through each file and build it dynamically using CI environment flags
 files.forEach(file => {
-  const name = path.parse(file).name; // extracts "marketing" from "marketing.md"
+  const name = path.parse(file).name;
   console.log(`Building presentation: ${name}...`);
   
-  // Run slidev build on the file inside the decks folder
-  execSync(`npx slidev build ${decksFolder}/${file} --out dist/${name} --base /${name}/`, { stdio: 'inherit' });
+  // Enforcing CI=true tells Slidev it is running on a cloud machine so it executes completely
+  execSync(`npx slidev build ${decksFolder}/${file} --out dist/${name} --base /${name}/`, { 
+    stdio: 'inherit',
+    env: { ...process.env, CI: 'true' } 
+  });
 });
 
 console.log('All presentations built successfully!');
