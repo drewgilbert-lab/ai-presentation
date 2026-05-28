@@ -5,6 +5,8 @@
     { "source": "/marketing/assets/:path*", "destination": "/marketing/assets/:path*" },
     { "source": "/marketing/:path*", "destination": "/marketing/index.html" },
     { "source": "/sales/assets/:path*", "destination": "/sales/assets/:path*" },
-    { "source": "/sales/:path*", "destination": "/sales/index.html" }
+    { "source": "/sales/:path*", "destination": "/sales/index.html" },
+    { "source": "/tam-report/assets/:path*", "destination": "/tam-report/assets/:path*" },
+    { "source": "/tam-report/:path*", "destination": "/tam-report/index.html" }
   ]
 }
