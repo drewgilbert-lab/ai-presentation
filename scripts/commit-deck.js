@@ -41,7 +41,7 @@ Environment variables:
   GITHUB_TOKEN   (required) GitHub PAT with repo contents write access
   GITHUB_OWNER   (default: drewgilbert-lab)
   GITHUB_REPO    (default: ai-presentation)
-  LIVE_URL_BASE  (default: https://ai-presentation.vercel.app)`);
+  LIVE_URL_BASE  (default: https://ai-presentation-seven-omega.vercel.app)`);
 }
 
 function expandHex(hex) {
@@ -197,7 +197,7 @@ async function main() {
 
   const owner = process.env.GITHUB_OWNER || 'drewgilbert-lab';
   const repo = process.env.GITHUB_REPO || 'ai-presentation';
-  const liveUrlBase = (process.env.LIVE_URL_BASE || 'https://ai-presentation.vercel.app').replace(/\/$/, '');
+  const liveUrlBase = (process.env.LIVE_URL_BASE || 'https://ai-presentation-seven-omega.vercel.app').replace(/\/$/, '');
 
   let content;
   let name;

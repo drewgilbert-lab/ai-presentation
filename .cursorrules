@@ -6,7 +6,7 @@ Zero-touch presentation generation for HG Insights. Markdown decks in `decks/` a
 
 **Pipeline:** User prompt → LLM generates Markdown → GitHub commit → Vercel CI/CD → live URL at `/{slug}/`
 
-**Live site:** https://ai-presentation.vercel.app
+**Live site:** https://ai-presentation-seven-omega.vercel.app
 **Repo:** https://github.com/drewgilbert-lab/ai-presentation
 
 ---

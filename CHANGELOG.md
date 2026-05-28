@@ -4,6 +4,12 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Changed — Production URL (2026-05-28)
+
+- Updated live site URL to `https://ai-presentation-seven-omega.vercel.app` in [`.cursorrules`](.cursorrules), [`README.md`](README.md), [`.env.example`](.env.example), and [`scripts/commit-deck.js`](scripts/commit-deck.js)
+
+---
+
 ### Fixed — Content scaling, footer spacing, and collapsible nav (2026-05-28)
 
 - **Problem:** After the initial footer buffer fix, dense slides still had content clipped rather than resized. Footer reserved too much bottom space. A persistent slide outline appeared top-right with no way to hide it.

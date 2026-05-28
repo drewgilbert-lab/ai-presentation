@@ -135,4 +135,4 @@ Reference `decks/marketing.md` in your user message as the style guide.
 - [ ] Preview locally: `npx slidev decks/{slug}.md --theme hg-theme`
 - [ ] Add Vercel rewrites in `vercel.json` for the new slug
 - [ ] Commit via git push or `npm run commit-deck -- --file decks/{slug}.md`
-- [ ] Verify live URL after deploy: `https://ai-presentation.vercel.app/{slug}/`
+- [ ] Verify live URL after deploy: `https://ai-presentation-seven-omega.vercel.app/{slug}/`
