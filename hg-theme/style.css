@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+:root {
+  --slidev-theme-primary: #003366;
+}
+
+html, body, .slidev-layout {
+  font-family: 'Nunito Sans', Arial, sans-serif !important;
+  color: #424242;
+}
+
+h1 {
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #003366 !important;
+  margin-bottom: 1rem !important;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* Hide Slidev's default page number */
+.slidev-page-number {
+  display: none !important;
+}
