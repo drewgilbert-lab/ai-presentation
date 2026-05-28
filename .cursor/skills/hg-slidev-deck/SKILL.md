@@ -224,11 +224,11 @@ You are encouraged to design **unique, complex slide layouts** by composing HTML
 
 ```html
 <div class="grid grid-cols-2 gap-6 mt-8">
-  <div class="hg-card border-t-4 border-hg-red">
+  <div class="hg-card">
     <div class="hg-card-header">Without HG</div>
     <div class="hg-card-body">Manual research, inconsistent data, slow cycles.</div>
   </div>
-  <div class="hg-card border-t-4 border-hg-medium">
+  <div class="hg-card">
     <div class="hg-card-header">With HG</div>
     <div class="hg-card-body">Automated intelligence, CRM-native, faster closes.</div>
   </div>

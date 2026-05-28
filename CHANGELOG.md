@@ -4,6 +4,17 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Fixed — Viewer chrome and card styling (2026-05-28)
+
+- **Problem:** Slide outline stayed visible top-right by default; `hg-card` blocks showed red/blue accent bars above navy headers; letterbox areas beside the slide were black in fullscreen.
+- **Fix:**
+  - [`hg-theme/global-top.vue`](hg-theme/global-top.vue) — new `hg-outline-visible-v2` localStorage key (default hidden); outline panel uses `v-show` plus CSS gated on `body.hg-show-slide-nav`
+  - [`hg-theme/style.css`](hg-theme/style.css) — hide all `.slidev-toc` / `.hg-slide-nav-panel` unless Outline is toggled; set `--slidev-slide-container-background` and `html`/`body`/`#page-root` to white; strip `border-t-4` on `.hg-card`
+  - [`decks/tam-report.md`](decks/tam-report.md) — removed `border-t-4` accent classes from `hg-card` elements
+  - [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md) — card examples no longer use top accent borders on `hg-card`
+
+---
+
 ### Fixed — Deck viewer freeze on dense slides (2026-05-28)
 
 - **Problem:** Viewing default-layout slides in the browser (especially dense decks like `tam-report`) caused the tab to freeze or crash. `HgFitContent` ran a non-terminating Vue update loop: `watch(scale)` re-triggered `recalculateScale()` after every scale change, and each run reset `scale` to `1` before measuring overflow.

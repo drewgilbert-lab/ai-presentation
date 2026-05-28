@@ -25,7 +25,7 @@ layout: default
       <div class="hg-card-header">What Analysts Answer</div>
       <div class="hg-card-body text-[14px]">Is this market large enough to justify investment? <span class="font-bold text-hg-navy">Yes — asked once, at planning time.</span></div>
     </div>
-    <div class="hg-card border-t-4 border-hg-medium">
+    <div class="hg-card">
       <div class="hg-card-header">What Execution Teams Need</div>
       <div class="hg-card-body text-[14px]">Which companies are we targeting, in what order, and why right now? <span class="font-bold text-hg-navy">Asked every quarter, by every rep.</span></div>
     </div>
@@ -97,15 +97,15 @@ layout: default
 </div>
 
 <div class="grid grid-cols-3 gap-5 mt-4">
-  <div class="hg-card border-t-4 border-hg-red">
+  <div class="hg-card">
     <div class="hg-card-header">What Looked Right</div>
     <div class="hg-card-body text-[13px]">$2.4B analyst TAM. Credible source. Board-approved. Headcount hired. Segment launched.</div>
   </div>
-  <div class="hg-card border-t-4 border-hg-red">
+  <div class="hg-card">
     <div class="hg-card-header">What Went Wrong</div>
     <div class="hg-card-body text-[13px]">Territory built on estimated market composition. Reps hit accounts already owned by competitors. Pipeline collapsed.</div>
   </div>
-  <div class="hg-card border-t-4 border-hg-medium">
+  <div class="hg-card">
     <div class="hg-card-header">What Was Missing</div>
     <div class="hg-card-body text-[13px]">Actual technology deployment data. Which companies match ICP, are greenfield, and are in-budget right now.</div>
   </div>
@@ -238,7 +238,7 @@ layout: default
       </div>
     </div>
   </div>
-  <div class="hg-card border-t-4 border-hg-medium">
+  <div class="hg-card">
     <div class="hg-card-header">Step 3 — Execute Against Your Market</div>
     <div class="hg-card-body text-[13px]">
       <p>Convert the market model into an executable list. Named companies, prioritized accounts, mapped contacts — pushed directly into your CRM, sequences, and territory plans.</p>

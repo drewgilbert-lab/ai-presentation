@@ -2,6 +2,13 @@
 
 :root {
   --slidev-theme-primary: #003366;
+  --slidev-slide-container-background: #ffffff;
+}
+
+html,
+body,
+#page-root {
+  background-color: #ffffff;
 }
 
 html, body, .slidev-layout {
@@ -49,13 +56,23 @@ li {
   will-change: transform;
 }
 
-/* Hide in-slide TOC overlays; use global-top collapsible nav instead */
-.slidev-layout .slidev-toc {
+/* Hide slide outline everywhere unless user toggles Outline (global-top) */
+.slidev-toc,
+.hg-slide-nav-panel {
   display: none !important;
 }
 
-.hg-slide-nav-panel .slidev-toc {
+body.hg-show-slide-nav .hg-slide-nav-panel {
   display: block !important;
+}
+
+body.hg-show-slide-nav .hg-slide-nav-panel .slidev-toc {
+  display: block !important;
+}
+
+/* hg-card uses a solid navy header — no colored top accent bars */
+.hg-card.border-t-4 {
+  border-top-width: 0 !important;
 }
 
 .hg-slide-nav-panel .slidev-toc-item {

@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core'
-import { watch } from 'vue'
+import { onMounted, watch } from 'vue'
 
-const showNav = useLocalStorage('hg-show-slide-nav', false)
+// v2 key resets any stale localStorage value that left the outline open
+const showNav = useLocalStorage('hg-outline-visible-v2', false)
 const showControls = useLocalStorage('hg-show-slide-controls', false)
 
-watch(showNav, (visible) => {
-  document.body.classList.toggle('hg-show-slide-nav', visible)
-}, { immediate: true })
+function syncBodyClasses() {
+  document.body.classList.toggle('hg-show-slide-nav', showNav.value)
+  document.body.classList.toggle('hg-show-slide-controls', showControls.value)
+}
 
-watch(showControls, (visible) => {
-  document.body.classList.toggle('hg-show-slide-controls', visible)
-}, { immediate: true })
+watch(showNav, syncBodyClasses, { immediate: true })
+watch(showControls, syncBodyClasses, { immediate: true })
+
+onMounted(syncBodyClasses)
 
 function toggleNav() {
   showNav.value = !showNav.value
@@ -44,7 +47,7 @@ function toggleControls() {
     </div>
 
     <div
-      v-if="showNav"
+      v-show="showNav"
       class="hg-slide-nav-panel pointer-events-auto bg-white/95 border border-hg-gray rounded-md shadow-lg p-3 max-h-[70vh] overflow-y-auto text-[12px] text-hg-dark min-w-[220px] max-w-[280px]"
     >
       <Toc mode="onlySiblings" :min-depth="1" :max-depth="1" />
