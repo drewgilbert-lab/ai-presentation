@@ -4,6 +4,11 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Added — Invoca CXO deck (2026-05-28)
+
+- [`decks/invoca-cxo.md`](decks/invoca-cxo.md) — CMO-targeted Invoca presentation deck
+- [`vercel.json`](vercel.json) — SPA rewrites for `/invoca-cxo/`
+
 ### Changed — Creative deck generation prompts and chart-friendly validation (2026-05-28)
 
 - [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md) — reframed around three-layer design philosophy (layouts → components → HTML/UnoCSS freedom); added mandatory layout variety rules, charts/Mermaid/CSS bar chart guidance, icons section; demoted card-grid shortcuts from default; `marketing.md` is format-only reference

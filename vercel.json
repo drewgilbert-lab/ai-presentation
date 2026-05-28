@@ -7,6 +7,8 @@
     { "source": "/sales/assets/:path*", "destination": "/sales/assets/:path*" },
     { "source": "/sales/:path*", "destination": "/sales/index.html" },
     { "source": "/tam-report/assets/:path*", "destination": "/tam-report/assets/:path*" },
-    { "source": "/tam-report/:path*", "destination": "/tam-report/index.html" }
+    { "source": "/tam-report/:path*", "destination": "/tam-report/index.html" },
+    { "source": "/invoca-cxo/assets/:path*", "destination": "/invoca-cxo/assets/:path*" },
+    { "source": "/invoca-cxo/:path*", "destination": "/invoca-cxo/index.html" }
   ]
 }
