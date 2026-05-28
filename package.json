@@ -1,9 +1,10 @@
 {
   "name": "ai-presentations",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "slidev",
-    "build": "slidev build --entry decks",
+    "build": "node build.js",
     "export": "slidev export"
   },
   "dependencies": {
