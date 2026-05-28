@@ -2,7 +2,33 @@
 
 All notable changes to the HG Insights AI Presentation Pipeline.
 
-## [Unreleased] — 2026-05-28
+## [Unreleased]
+
+### Fixed — Default layout footer (2026-05-28)
+
+- **Problem:** Body content on dense slides (e.g. 2×2 card grids) overflowed into the footer, overlapping the logo, copyright text, and page number. Footer logo was bottom-aligned while copyright and page number were vertically misaligned.
+- **Fix:** Restructured [`hg-theme/layouts/default.vue`](hg-theme/layouts/default.vue) as a flex column per [Slidev layout conventions](https://sli.dev/guide/layout):
+  - Body content in a `flex-1 min-h-0 overflow-hidden` zone — content cannot enter the footer band
+  - Fixed footer bar (`h-14` + `mt-6` gap) with `flex items-center` for vertical alignment of logo, copyright, and slide number
+  - Logo constrained with `max-h-10` to align with 9px footer text
+- Added supporting CSS in [`hg-theme/style.css`](hg-theme/style.css) for `.default-layout-content` and `.default-layout-footer`
+- Updated design docs with **content safe zone** guidance (~80px reserved at bottom of content slides):
+  - [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md)
+  - [`.cursorrules`](.cursorrules)
+  - [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md)
+
+---
+
+### Added — Cursor rules, deck skill, and TAM report deck (2026-05-28)
+
+- Created [`.cursorrules`](.cursorrules) — project conventions for Cursor agents
+- Created [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md) — full deck generation skill with composable visual patterns
+- Added [`decks/tam-report.md`](decks/tam-report.md) — TAM report presentation
+- Updated [`vercel.json`](vercel.json) — routing rewrites for `/tam-report/`
+
+---
+
+## [0.1.0] — 2026-05-28
 
 ### Summary
 
@@ -119,29 +145,12 @@ Completed **Phase 3 (Pipeline Stabilization)** and **Phase 4 (LLM Integration)**
 
 ### Known Issues & Follow-ups
 
-1. **Vercel deploy not yet verified post-fix** — Changes are local only until pushed to `main`. After push, confirm deployment succeeds and test live URLs:
-   - `https://ai-presentation.vercel.app/`
-   - `https://ai-presentation.vercel.app/marketing/`
-   - `https://ai-presentation.vercel.app/sales/`
+1. **New deck routing is manual** — Each new deck requires two rewrite entries in `vercel.json`. Consider auto-generating rewrites in a future iteration.
 
-2. **New deck routing is manual** — Each new deck requires two rewrite entries in `vercel.json`. The commit script prints a reminder; consider auto-generating rewrites in a future iteration.
+2. **Slidev outDir warning** — Vite logs a non-fatal warning that `outDir` is outside project root. Build succeeds; warning is expected given multi-deck architecture.
 
-3. **Slidev outDir warning** — Vite logs a non-fatal warning that `outDir` is outside project root. Build succeeds; warning is expected given multi-deck architecture.
+3. **npm audit** — `npm install` reports moderate/low vulnerabilities in dependencies. Not blocking; consider dependency updates separately.
 
-4. **npm audit** — `npm install` reports 17 moderate/low vulnerabilities in dependencies. Not blocking; consider dependency updates separately.
+4. **E2E with real GitHub token** — Full pipeline test (Claude → commit-deck → Vercel → live URL) requires a GitHub PAT in `.env`. See README for setup.
 
-5. **E2E with real GitHub token** — Full pipeline test (Claude → commit-deck → Vercel → live URL) requires a GitHub PAT in `.env`. See README for setup.
-
----
-
-### Deployment Instructions
-
-To publish these fixes:
-
-```bash
-git add -A
-git commit -m "Fix Vercel build, add LLM integration and deployment routing"
-git push origin main
-```
-
-Vercel will auto-deploy on push to `main`. Monitor the build log for successful compilation of both decks.
+5. **Dense slide content** — Footer overflow is now prevented by layout clipping; very dense slides may still clip content at the bottom. Prefer compact spacing or split across slides (see skill safe-zone guidance).

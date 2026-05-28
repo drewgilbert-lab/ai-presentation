@@ -101,7 +101,11 @@ For complex visuals, compose HTML + brand UnoCSS classes — do not create new V
 ### Layouts auto-apply brand chrome — do not duplicate in decks
 
 - **`cover.vue`:** Navy background, white logo top-left, CONFIDENTIAL bottom-right
-- **`default.vue`:** White background, blue logo + copyright footer, slide number
+- **`default.vue`:** White background, flex column layout — body content in a clipped upper zone, fixed footer band below with vertically centered logo (left), copyright (center), slide number (right)
+
+### Content safe zone
+
+Default-layout slides reserve ~80px at the bottom for the footer. Body content cannot overflow into it. Keep dense slides compact (`gap-4` on grids, one primary visual block per slide).
 
 ### Logo assets
 

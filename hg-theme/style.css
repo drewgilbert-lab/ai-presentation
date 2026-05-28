@@ -30,3 +30,18 @@ li {
 .slidev-page-number {
   display: none !important;
 }
+
+/* Default layout: reserve footer band and constrain body content above it */
+.slidev-layout.default {
+  box-sizing: border-box;
+}
+
+.slidev-layout.default .default-layout-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.slidev-layout.default .default-layout-footer {
+  flex-shrink: 0;
+}
