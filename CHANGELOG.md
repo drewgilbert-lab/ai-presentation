@@ -4,6 +4,18 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Fixed — Deck viewer freeze on dense slides (2026-05-28)
+
+- **Problem:** Viewing default-layout slides in the browser (especially dense decks like `tam-report`) caused the tab to freeze or crash. `HgFitContent` ran a non-terminating Vue update loop: `watch(scale)` re-triggered `recalculateScale()` after every scale change, and each run reset `scale` to `1` before measuring overflow.
+- **Fix:** Updated [`hg-theme/components/HgFitContent.vue`](hg-theme/components/HgFitContent.vue):
+  - Removed `watch(scale)` feedback loop
+  - Removed `useResizeObserver` on inner content (only observe container)
+  - Debounced recalc via `requestAnimationFrame` with `isMeasuring` guard
+  - Assign scale only when value changes meaningfully (`> 0.001` delta)
+  - Recalc on slide change via `watch($page)` from `useSlideContext()`
+
+---
+
 ### Changed — Production URL (2026-05-28)
 
 - Updated live site URL to `https://ai-presentation-seven-omega.vercel.app` in [`.cursorrules`](.cursorrules), [`README.md`](README.md), [`.env.example`](.env.example), and [`scripts/commit-deck.js`](scripts/commit-deck.js)

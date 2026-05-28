@@ -1,16 +1,29 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref, watch } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
+import { useSlideContext } from '@slidev/client'
+
+const MIN_SCALE = 0.55
+const SCALE_EPSILON = 0.001
 
 const containerRef = ref<HTMLElement>()
 const innerRef = ref<HTMLElement>()
 const scale = ref(1)
 
+let isMeasuring = false
+let rafId = 0
+
 function recalculateScale() {
+  if (isMeasuring)
+    return
+
   const container = containerRef.value
   const inner = innerRef.value
   if (!container || !inner)
     return
+
+  isMeasuring = true
+  const previousScale = scale.value
 
   scale.value = 1
   void inner.offsetHeight
@@ -18,15 +31,28 @@ function recalculateScale() {
   const availableHeight = container.clientHeight
   const contentHeight = inner.scrollHeight
 
-  if (contentHeight > availableHeight && availableHeight > 0)
-    scale.value = Math.max(0.55, availableHeight / contentHeight)
+  const nextScale =
+    contentHeight > availableHeight && availableHeight > 0
+      ? Math.max(MIN_SCALE, availableHeight / contentHeight)
+      : 1
+
+  if (Math.abs(nextScale - previousScale) > SCALE_EPSILON)
+    scale.value = nextScale
+
+  isMeasuring = false
 }
 
-useResizeObserver(containerRef, recalculateScale)
-useResizeObserver(innerRef, recalculateScale)
+function scheduleRecalc() {
+  cancelAnimationFrame(rafId)
+  rafId = requestAnimationFrame(recalculateScale)
+}
 
-onMounted(() => nextTick(recalculateScale))
-watch(scale, () => nextTick(recalculateScale))
+useResizeObserver(containerRef, scheduleRecalc)
+
+onMounted(() => nextTick(scheduleRecalc))
+
+const { $page } = useSlideContext()
+watch($page, () => nextTick(scheduleRecalc))
 </script>
 
 <template>
