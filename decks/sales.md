@@ -1,12 +1,14 @@
 ---
-theme: default
+layout: cover
 ---
 
-# Enterprise Sales Pitch 🤝
-This is a completely separate presentation link.
+# Enterprise Sales Pitch
+Winning the Market
 
 ---
+layout: default
+---
 
-# Pricing Tiers
-- Basic: $99/mo
-- Enterprise: Custom
+# The Value Proposition
+
+We deliver unparalleled insights directly to your CRM.
