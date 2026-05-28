@@ -1,0 +1,11 @@
+{
+  "name": "slidev-theme-hg-insights",
+  "slidev": {
+    "defaults": {
+      "fonts": {
+        "sans": "Nunito Sans",
+        "local": "Nunito Sans"
+      }
+    }
+  }
+}
