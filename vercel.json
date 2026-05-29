@@ -9,6 +9,8 @@
     { "source": "/tam-report/assets/:path*", "destination": "/tam-report/assets/:path*" },
     { "source": "/tam-report/:path*", "destination": "/tam-report/index.html" },
     { "source": "/invoca-cxo/assets/:path*", "destination": "/invoca-cxo/assets/:path*" },
-    { "source": "/invoca-cxo/:path*", "destination": "/invoca-cxo/index.html" }
+    { "source": "/invoca-cxo/:path*", "destination": "/invoca-cxo/index.html" },
+    { "source": "/lenovo-account-prioritization/assets/:path*", "destination": "/lenovo-account-prioritization/assets/:path*" },
+    { "source": "/lenovo-account-prioritization/:path*", "destination": "/lenovo-account-prioritization/index.html" }
   ]
 }

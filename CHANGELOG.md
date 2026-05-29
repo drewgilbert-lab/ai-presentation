@@ -4,6 +4,19 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Added — Lenovo account prioritization deck (2026-05-28)
+
+- [`decks/lenovo-account-prioritization.md`](decks/lenovo-account-prioritization.md) — Lenovo × HG Insights account prioritization presentation
+- [`vercel.json`](vercel.json) — SPA rewrites for `/lenovo-account-prioritization/`
+
+### Removed — Slide sidebar permanently (2026-05-28)
+
+- **Problem:** Custom text slide sidebar (TOC panel) kept appearing on deck pages despite multiple hide/toggle fixes; no reliable way to dismiss it.
+- **Fix:**
+  - Deleted [`hg-theme/global-top.vue`](hg-theme/global-top.vue) — removed `<Toc>` sidebar source and all related keyboard handlers
+  - [`hg-theme/style.css`](hg-theme/style.css) — removed conditional sidebar/controls-gating CSS; added unconditional `.slidev-toc` suppression
+  - Updated [`.cursorrules`](.cursorrules), [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md), [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md) — removed Shift+O/Shift+C sidebar references; Slidev overview (**O** / backtick) remains for navigation
+
 ### Added — Theme icon library for decks (2026-05-28)
 
 - [`hg-theme/public/icons/`](hg-theme/public/icons/) — 30 brand SVG icons copied from Downloads and normalized to kebab-case filenames

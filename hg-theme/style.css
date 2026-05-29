@@ -56,56 +56,14 @@ li {
   will-change: transform;
 }
 
-/* Hide slide outline everywhere unless opened via Shift+O (global-top.vue) */
-.hg-global-nav {
+/* Permanently suppress slide sidebar / TOC — never shown */
+.slidev-toc {
   display: none !important;
-}
-
-body.hg-show-slide-nav .hg-global-nav {
-  display: block !important;
-}
-
-.slidev-toc,
-.hg-slide-nav-panel {
-  display: none !important;
-}
-
-body.hg-show-slide-nav .hg-slide-nav-panel {
-  display: block !important;
-}
-
-body.hg-show-slide-nav .hg-slide-nav-panel .slidev-toc {
-  display: block !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 /* hg-card uses a solid navy header — no colored top accent bars */
 .hg-card.border-t-4 {
   border-top-width: 0 !important;
-}
-
-.hg-slide-nav-panel .slidev-toc-item {
-  margin-bottom: 0.25rem;
-  line-height: 1.3;
-}
-
-.hg-slide-nav-panel .slidev-toc-item-active {
-  color: #003366;
-  font-weight: 700;
-}
-
-/* Slidev play-mode controls hidden until toggled */
-body:not(.hg-show-slide-controls) #slide-container > .absolute.bottom-0 {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-body.hg-show-slide-controls #slide-container > .absolute.bottom-0 {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-body:not(.hg-show-slide-controls) .slidev-draggable,
-body:not(.hg-show-slide-controls) .slidev-goto-dialog,
-body:not(.hg-show-slide-controls) .fixed.top-4.right-4.z-20 {
-  display: none !important;
 }
