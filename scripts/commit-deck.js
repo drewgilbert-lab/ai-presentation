@@ -109,6 +109,16 @@ function validateFirstSlideCover(content) {
   }
 }
 
+function validateDeckOnlyPatterns(content) {
+  if (/<\/?Toc\b/i.test(content)) {
+    throw new Error('Deck contains <Toc> — slide sidebars and TOC are forbidden; use cover/default layouts only');
+  }
+
+  if (/\bglobal-top\b|\bglobal-bottom\b|\bslide-top\b|\bslide-bottom\b/i.test(content)) {
+    throw new Error('Deck references global/slide layer files — navigation sidebars are forbidden');
+  }
+}
+
 function warnSuspiciousPatterns(content) {
   const warnings = [];
 
@@ -259,6 +269,7 @@ async function main() {
   try {
     validateDeckName(name);
     validateFirstSlideCover(content);
+    validateDeckOnlyPatterns(content);
   } catch (error) {
     console.error(`Validation error: ${error.message}`);
     process.exit(4);

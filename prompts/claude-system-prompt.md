@@ -171,7 +171,7 @@ Do **not** include any of the following:
 - Professional, concise business language appropriate for HG Insights stakeholders.
 - Use `#` for slide titles (one per slide).
 - Use bullet lists (`*`) for key points; keep slides scannable.
-- **Footer safe zone:** The default layout reserves ~52px at the bottom for logo, copyright, and page number. Body content auto-scales to fit above the footer. Do not embed `<Toc>` or slide sidebars in deck markdown; Slidev overview (**O** / backtick) is available for navigation.
+- **Footer safe zone:** The default layout reserves ~52px at the bottom for logo, copyright, and page number. Body content auto-scales to fit above the footer. Do not embed `<Toc>` or slide sidebars in deck markdown. Deployed decks use deck-only mode — no Slidev navigation chrome.
 - Typical deck length: 3–12 slides depending on depth (cover + content slides).
 - Cover slide: title on `#` line, subtitle as plain text on the next line (no extra heading levels).
 

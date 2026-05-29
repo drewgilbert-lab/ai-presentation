@@ -6,6 +6,9 @@
         "sans": "Nunito Sans",
         "local": "Nunito Sans"
       },
+      "contextMenu": false,
+      "info": false,
+      "download": false,
       "drawings": {
         "presenterOnly": true
       }

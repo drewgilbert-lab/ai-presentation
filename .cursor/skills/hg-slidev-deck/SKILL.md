@@ -49,7 +49,7 @@ Your content sits inside the layout slot. Design **within** that canvas.
 
 The default layout uses a flex column: body content fills the upper area and **auto-scales down** to fit above the footer; a **fixed footer band** (~40px + 12px gap) is reserved at the bottom.
 
-- Do **not** add your own footer, logo, copyright, page numbers, or slide sidebar/TOC on content slides — slide sidebars are permanently disabled; use Slidev overview (**O** / backtick) for navigation when presenting.
+- Do **not** add your own footer, logo, copyright, page numbers, or slide sidebar/TOC on content slides — slide sidebars and all Slidev viewer chrome are permanently disabled in deck-only mode; only slide content (plus HG layout footer on default slides) is visible.
 - Dense slides auto-scale above the footer — split across slides rather than cramming.
 - **Visual density is content-driven:** a data slide may combine a chart + legend + callout; a narrative slide may be mostly prose with one accent element.
 - If content feels tight, split across two slides rather than filling to the bottom edge.

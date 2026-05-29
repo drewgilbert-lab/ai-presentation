@@ -105,7 +105,7 @@ For complex visuals, compose HTML + brand UnoCSS classes — do not create new V
 
 ### Content safe zone
 
-Default-layout slides reserve ~52px at the bottom for the footer. Body content auto-scales to fit above it. Do not embed `<Toc>` or slide sidebars in deck markdown — Slidev overview (**O** / backtick) is available for navigation.
+Default-layout slides reserve ~52px at the bottom for the footer. Body content auto-scales to fit above it. Do not embed `<Toc>` or slide sidebars in deck markdown. Deployed decks run in **deck-only mode** — no Slidev navigation chrome (no sidebar, no bottom nav, no overview overlay). Invisible keyboard/swipe navigation still works for presenting.
 
 ### Logo assets
 

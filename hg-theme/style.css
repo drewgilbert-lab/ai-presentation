@@ -56,8 +56,15 @@ li {
   will-change: transform;
 }
 
-/* Permanently suppress slide sidebar / TOC — never shown */
-.slidev-toc {
+/* Deck-only viewer: hide all navigation sidebar and Slidev chrome */
+.hg-global-nav,
+.hg-slide-nav-panel,
+.slidev-toc,
+#slide-container > .absolute.bottom-0,
+.fixed.top-4.right-4.z-20,
+.fixed.left-0.right-0.top-0.z-20,
+#slidev-goto-dialog,
+.slidev-draggable {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;

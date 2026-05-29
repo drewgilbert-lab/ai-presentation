@@ -4,6 +4,17 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Changed — Deck-only viewer mode (2026-05-28)
+
+- **Problem:** Top-right navigation sidebar and Slidev viewer chrome (bottom nav, overview overlay, context menu) still appeared on deployed decks despite deleting `global-top.vue`.
+- **Fix:**
+  - [`hg-theme/package.json`](hg-theme/package.json) — theme defaults disable `contextMenu`, `info`, and `download`; keep `drawings.presenterOnly`
+  - [`hg-theme/style.css`](hg-theme/style.css) — comprehensive CSS suppression for legacy sidebar classes and all Slidev overlay chrome
+  - [`hg-theme/setup/shortcuts.ts`](hg-theme/setup/shortcuts.ts) — filter out overview, goto, and other UI-opening keyboard shortcuts
+  - [`build.js`](build.js) — pre-build check for forbidden `global-top.vue`; post-build dist scan for sidebar artifact strings
+  - [`scripts/commit-deck.js`](scripts/commit-deck.js) — reject decks containing `<Toc>` or global/slide layer references
+  - Updated [`.cursorrules`](.cursorrules), skill, and system prompt — deck-only mode policy
+
 ### Added — Lenovo account prioritization deck (2026-05-28)
 
 - [`decks/lenovo-account-prioritization.md`](decks/lenovo-account-prioritization.md) — Lenovo × HG Insights account prioritization presentation
