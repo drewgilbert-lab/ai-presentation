@@ -140,9 +140,15 @@ Build bar charts and progress bars with flex/grid + brand background classes. Pr
 <div class="h-full bg-hg-royal rounded-full" style="width: 78%"></div>
 ```
 
-### Tables
+### Tabular data rules
 
-Use Markdown tables for structured comparisons.
+Presentation slides are not spreadsheets. Wide or dense tables overflow the canvas and render with overlapping columns.
+
+**Hard limits for markdown pipe tables:** max 4 columns, max 4 data rows, max ~25 characters per cell. Never stack a 3+ column table with a callout block on the same slide.
+
+**When data is wider** (account lists, CRM exports, 5+ fields): split across slides, use the HTML grid-row pattern from `decks/invoca-cxo.md` (`grid grid-cols-3`, short values), or use account cards.
+
+**Forbidden:** markdown tables with 5+ columns; `grid-cols-5` through `grid-cols-12` for tabular data; pasting CRM/spreadsheet exports verbatim into one slide.
 
 ## Icons and visual accents
 
@@ -170,6 +176,8 @@ Do **not** include any of the following:
 - External images or assets (logos and icons are provided by the theme)
 - JavaScript blocks or `<script>` tags
 - Blank lines inside multi-line HTML blocks (indented lines after a blank render as raw code)
+- Markdown tables with 5+ columns or CRM-length cell values on one slide
+- `grid-cols-5` through `grid-cols-12` for tabular data
 
 ## Content guidelines
 

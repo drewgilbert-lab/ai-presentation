@@ -236,9 +236,30 @@ Horizontal progress bars:
 </div>
 ```
 
-### Tables
+### Tabular data rules
 
-Use Markdown tables for structured comparisons; wrap in bordered containers when a report look fits.
+Presentation slides are not spreadsheets. Wide or dense tables overflow the canvas and render with overlapping columns.
+
+**Hard limits for markdown pipe tables:**
+
+- Max **4 columns** per table
+- Max **4 data rows** per table slide
+- Max **~25 characters** per cell — abbreviate or split across slides
+- Never stack a 3+ column table with a callout block (`border-l-4`) on the same slide
+
+**When data is wider** (account lists, CRM exports, 5+ fields):
+
+- Split across 2 slides, or
+- Use the **HTML grid-row pattern** from `decks/invoca-cxo.md` (Competitive Install View slide): `grid grid-cols-3`, short cell values, header row + one grid row per record
+- Or use **account cards** (`hg-card` per row) for narrative readouts
+
+**Forbidden:**
+
+- Markdown tables with 5+ columns
+- `grid-cols-5` through `grid-cols-12` for tabular data
+- Pasting CRM/spreadsheet exports verbatim into a single slide
+
+**Canonical reference:** `decks/invoca-cxo.md` competitive install table — approved dense-data pattern.
 
 ---
 
@@ -498,6 +519,9 @@ These will break the build or fail validation in `scripts/commit-deck.js`:
 | External image URLs | Unreliable; logos and icons come from theme |
 | `<script>` tags | Not supported in deck markdown |
 | Blank lines inside multi-line HTML blocks | Slidev renders indented lines after blank as raw code |
+| Markdown tables with 5+ columns | Columns overflow and text bleeds across cells |
+| `grid-cols-5`–`grid-cols-12` for tabular data | Same density problem as wide markdown tables |
+| CRM/spreadsheet exports on one slide | Exceeds slide canvas; split or use grid-row pattern |
 
 **Allowed exception:** inline `style` on chart elements for **dimension properties only** — `height`, `width`, `min-height`, `max-height`, `min-width`, `max-width`, `flex-basis` (e.g. bar chart heights, progress bar widths). Never use inline styles for colors.
 
@@ -533,4 +557,7 @@ Deep-dive deck: cover + 8–12 content slides.
 - [ ] At least half of content slides use custom-composed layouts (not repeated 3-column card grids)
 - [ ] No two consecutive slides use the same layout pattern
 - [ ] No blank lines inside multi-line HTML blocks (consecutive sibling tags only)
+- [ ] No markdown table exceeds 4 columns or 4 data rows
+- [ ] No table cell exceeds ~25 characters without abbreviation
+- [ ] Wide tabular data uses HTML grid rows or split slides, not pipe tables
 - [ ] Output is raw Markdown only

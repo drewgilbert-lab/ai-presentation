@@ -4,6 +4,15 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Added — Table density guardrails (2026-05-29)
+
+- **Problem:** Wide markdown tables (5+ columns, CRM-length cells) overflowed the slide canvas and rendered with overlapping text — e.g. `scoring-research-readout` slide 5.
+- **Fix:**
+  - [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md), [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md), [`.cursorrules`](.cursorrules) — explicit tabular data rules (max 4 columns/rows, cell length limits, grid-row alternative from `invoca-cxo.md`)
+  - [`scripts/deck-validation.js`](scripts/deck-validation.js) — `warnTableDensity()` warns on wide tables, long cells, dense table+callout combos, and `grid-cols-5`–`grid-cols-12`
+  - [`build.js`](build.js) — runs deck validation before Slidev build (warn-only, does not block)
+  - [`hg-theme/style.css`](hg-theme/style.css) — defensive table CSS (`table-layout: fixed`, word-break) to prevent column bleed
+
 ### Added — Google Drive → GitHub deck sync (2026-05-29)
 
 - [`scripts/deck-validation.js`](scripts/deck-validation.js) — shared deck validation extracted from commit-deck

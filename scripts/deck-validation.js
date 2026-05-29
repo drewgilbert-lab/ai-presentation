@@ -47,6 +47,104 @@ function findDisallowedInlineStyles(content) {
   return [...disallowed];
 }
 
+const MAX_TABLE_COLUMNS = 4;
+const MAX_TABLE_ROWS = 4;
+const MAX_CELL_CHARS = 40;
+const TABLE_ROW_RE = /^\|.+\|$/;
+
+function parseTableRow(line) {
+  return line.split('|').slice(1, -1).map((cell) => cell.trim());
+}
+
+function isSeparatorRow(line) {
+  const cells = parseTableRow(line);
+  return cells.length > 0 && cells.every((cell) => /^:?-+:?$/.test(cell));
+}
+
+function parseMarkdownTables(slideBody) {
+  const lines = slideBody.split('\n');
+  const tables = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    if (!TABLE_ROW_RE.test(lines[i].trim())) {
+      i++;
+      continue;
+    }
+
+    const tableLines = [];
+    while (i < lines.length && TABLE_ROW_RE.test(lines[i].trim())) {
+      tableLines.push(lines[i].trim());
+      i++;
+    }
+
+    if (tableLines.length < 2) {
+      continue;
+    }
+
+    const headerCells = parseTableRow(tableLines[0]);
+    let dataStart = 1;
+    if (tableLines.length > 1 && isSeparatorRow(tableLines[1])) {
+      dataStart = 2;
+    }
+
+    const dataRows = tableLines.slice(dataStart).filter((line) => !isSeparatorRow(line));
+    const allCells = [
+      ...headerCells,
+      ...dataRows.flatMap((line) => parseTableRow(line)),
+    ];
+
+    tables.push({
+      columnCount: headerCells.length,
+      dataRowCount: dataRows.length,
+      allCells,
+    });
+  }
+
+  return tables;
+}
+
+export function warnTableDensity(content) {
+  const warnings = [];
+  const slides = content.split(/^---$/m).slice(1);
+
+  for (let i = 0; i < slides.length; i++) {
+    const slideNum = i + 1;
+    const slideBody = slides[i].replace(/^\s*[\r\n]+/, '');
+
+    for (const match of slideBody.matchAll(/\bgrid-cols-(?:([5-9]|1[0-2]))\b/g)) {
+      warnings.push(`Slide ${slideNum}: grid-cols-${match[1]} too wide for tabular data (max 4)`);
+    }
+
+    const tables = parseMarkdownTables(slideBody);
+
+    for (const table of tables) {
+      if (table.columnCount > MAX_TABLE_COLUMNS) {
+        warnings.push(`Slide ${slideNum}: markdown table has ${table.columnCount} columns (max 4)`);
+      }
+
+      if (table.dataRowCount > MAX_TABLE_ROWS) {
+        warnings.push(`Slide ${slideNum}: markdown table has ${table.dataRowCount} rows (max 4 per slide)`);
+      }
+
+      if (table.allCells.some((cell) => cell.length > MAX_CELL_CHARS)) {
+        warnings.push(`Slide ${slideNum}: table cell exceeds 40 chars — abbreviate or split slide`);
+      }
+    }
+
+    if (/border-l-4/.test(slideBody)) {
+      for (const table of tables) {
+        if (table.columnCount >= 3) {
+          warnings.push(`Slide ${slideNum}: dense table + callout on same slide — split across slides`);
+          break;
+        }
+      }
+    }
+  }
+
+  return warnings;
+}
+
 export function validateDeckName(name) {
   if (!KEBAB_CASE.test(name)) {
     throw new Error(`Deck name "${name}" must be kebab-case (e.g. q3-strategy)`);
@@ -134,6 +232,8 @@ export function warnSuspiciousPatterns(content) {
       );
     }
   }
+
+  warnings.push(...warnTableDensity(content));
 
   return warnings;
 }

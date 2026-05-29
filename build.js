@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
+import { validateDeck } from './scripts/deck-validation.js';
 
 const rootDir = path.resolve('.');
 const decksFolder = path.resolve('./decks');
@@ -73,6 +74,21 @@ const files = fs.readdirSync(decksFolder)
   .filter(file => file.endsWith('.md'));
 
 console.log(`Found ${files.length} presentations. Applying HG Insights Theme...`);
+
+for (const file of files) {
+  const name = path.parse(file).name;
+  const content = fs.readFileSync(path.join(decksFolder, file), 'utf8');
+
+  try {
+    const warnings = validateDeck(name, content);
+    for (const warning of warnings) {
+      console.warn(`Warning (${name}): ${warning}`);
+    }
+  } catch (error) {
+    console.error(`Validation error (${name}): ${error.message}`);
+    process.exit(1);
+  }
+}
 
 files.forEach(file => {
   const name = path.parse(file).name;

@@ -56,6 +56,21 @@ li {
   will-change: transform;
 }
 
+.slidev-layout.default table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.slidev-layout.default th,
+.slidev-layout.default td {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+  padding: 0.35rem 0.5rem;
+}
+
 /* Deck-only viewer: hide all navigation sidebar and Slidev chrome */
 .hg-global-nav,
 .hg-slide-nav-panel,
