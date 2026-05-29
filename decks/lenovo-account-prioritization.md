@@ -96,7 +96,6 @@ layout: default
 <div class="flex items-start gap-10 mt-6">
   <div class="flex-1">
     <div class="text-[13px] text-hg-dark mb-4">Broadcom's acquisition of VMware triggered pricing increases of <span class="font-bold text-hg-navy">200–400%</span> for many enterprise customers. Accounts are actively evaluating alternatives — this is a time-limited window.</div>
-
     <div class="flex flex-col gap-3 mt-4">
       <div class="bg-hg-gray rounded-lg px-4 py-3">
         <div class="font-bold text-hg-navy text-[13px]">HG Signal: VMware Install Depth</div>
@@ -112,7 +111,6 @@ layout: default
       </div>
     </div>
   </div>
-
   <div class="w-56 flex-shrink-0">
     <div class="bg-hg-navy text-white rounded-xl p-6 text-center shadow-lg">
       <div class="text-[11px] uppercase tracking-widest opacity-60 mb-2">Priority Score Weight</div>
@@ -180,7 +178,6 @@ layout: default
 <div class="flex items-center gap-8 mt-4">
   <div class="flex-1">
     <div class="text-[13px] text-hg-dark mb-5">Microsoft ended mainstream support for Windows 10 in <span class="font-bold text-hg-navy">October 2025</span>. Organizations still running Win10 fleets face security exposure — creating a mandatory hardware refresh cycle.</div>
-
     <div class="text-[13px] font-bold text-hg-navy mb-3">Fleet exposure by segment (estimated)</div>
     <div class="flex flex-col gap-3">
       <div>
@@ -209,7 +206,6 @@ layout: default
       </div>
     </div>
   </div>
-
   <div class="w-64 flex-shrink-0 flex flex-col gap-4">
     <div class="bg-hg-red text-white rounded-xl p-5 shadow-lg text-center">
       <div class="text-[11px] uppercase tracking-widest opacity-70 mb-1">Security Gap</div>
@@ -411,7 +407,6 @@ layout: default
       </div>
     </div>
   </div>
-
   <div class="flex flex-col gap-4">
     <div class="flex items-start gap-4 p-4 rounded-lg bg-hg-gray">
       <div class="w-10 h-10 rounded-full bg-hg-navy text-white flex items-center justify-center font-bold text-[14px] flex-shrink-0">4</div>

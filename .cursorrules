@@ -69,7 +69,7 @@ These rules are enforced by the theme, build, and `commit-deck.js` validation.
 ### Allowed in deck content
 
 - Standard Markdown (headings, lists, tables)
-- Inline HTML with UnoCSS/Tailwind classes
+- Inline HTML with UnoCSS/Tailwind classes (no blank lines inside multi-line HTML blocks — use spacing classes instead)
 - Brand shortcuts: `hg-card`, `hg-stat-box`, `hg-stat-num`, `hg-stat-label`, etc.
 - Brand color tokens: `text-hg-navy`, `bg-hg-gray`, `border-hg-royal`, etc.
 - Layout utilities: `grid`, `flex`, `gap-*`, `mt-*`, etc.
@@ -85,6 +85,7 @@ These rules are enforced by the theme, build, and `commit-deck.js` validation.
 - Custom Vue components not in `hg-theme/components/`
 - External image URLs (logos and icons are provided by the theme)
 - `<script>` tags
+- Blank lines inside multi-line HTML blocks (Slidev renders following indented lines as raw code)
 
 ### Canonical reference
 

@@ -164,6 +164,16 @@ function warnSuspiciousPatterns(content) {
     warnings.push(`Unknown components: ${unknownComponents.join(', ')} — only HgStatBox and HgIcon are allowed`);
   }
 
+  const slides = content.split(/^---$/m).slice(1);
+  for (let i = 0; i < slides.length; i++) {
+    const slideBody = slides[i].replace(/^\s*[\r\n]+/, '');
+    if (/^ {2,}<[^\n]*>\n\n^ {2,}</m.test(slideBody)) {
+      warnings.push(
+        `Slide ${i + 1}: blank line inside indented HTML block — Slidev will render following lines as raw code`,
+      );
+    }
+  }
+
   return warnings;
 }
 

@@ -95,6 +95,25 @@ Never use:
 - Layout names other than `cover` and `default`
 - Custom CSS imports or `class:` frontmatter that injects non-brand colors
 
+### HTML composition rules
+
+Inside a multi-line HTML block, **never insert blank lines** between tags. Blank lines terminate HTML parsing in Slidev; indented lines after a blank line render as raw code. Use UnoCSS spacing classes (`mt-*`, `mb-*`, `gap-*`) for visual separation. Blank lines are allowed **only** between separate root-level HTML blocks (tags at column 0).
+
+```html
+<!-- BAD: blank line inside block -->
+<div class="flex gap-8">
+  <div class="flex-1">...</div>
+
+  <div class="w-56">...</div>
+</div>
+
+<!-- GOOD: consecutive siblings -->
+<div class="flex gap-8">
+  <div class="flex-1">...</div>
+  <div class="w-56">...</div>
+</div>
+```
+
 ---
 
 ## Brand system (your design palette)
@@ -478,6 +497,7 @@ These will break the build or fail validation in `scripts/commit-deck.js`:
 | Custom Vue components (e.g. `<MyChart>`) | Not in repo; will fail at build — use `HgStatBox`, `HgIcon` only |
 | External image URLs | Unreliable; logos and icons come from theme |
 | `<script>` tags | Not supported in deck markdown |
+| Blank lines inside multi-line HTML blocks | Slidev renders indented lines after blank as raw code |
 
 **Allowed exception:** inline `style` on chart elements for **dimension properties only** — `height`, `width`, `min-height`, `max-height`, `min-width`, `max-width`, `flex-basis` (e.g. bar chart heights, progress bar widths). Never use inline styles for colors.
 
@@ -512,4 +532,5 @@ Deep-dive deck: cover + 8–12 content slides.
 - [ ] No invented Vue components
 - [ ] At least half of content slides use custom-composed layouts (not repeated 3-column card grids)
 - [ ] No two consecutive slides use the same layout pattern
+- [ ] No blank lines inside multi-line HTML blocks (consecutive sibling tags only)
 - [ ] Output is raw Markdown only

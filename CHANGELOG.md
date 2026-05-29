@@ -4,6 +4,14 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Fixed — HTML blank-line rendering in Lenovo deck (2026-05-28)
+
+- **Problem:** Slides 4, 6, and 10 in `lenovo-account-prioritization` displayed raw HTML as text instead of rendered layouts — blank lines inside multi-line HTML blocks caused Slidev's markdown-it parser to treat indented lines as code blocks.
+- **Fix:**
+  - [`decks/lenovo-account-prioritization.md`](decks/lenovo-account-prioritization.md) — removed 5 blank lines inside HTML blocks (slides 4, 6, 10)
+  - [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md), [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md), [`.cursorrules`](.cursorrules) — added HTML composition rule: no blank lines inside multi-line HTML blocks
+  - [`scripts/commit-deck.js`](scripts/commit-deck.js) — warn when blank lines appear between indented HTML lines in a slide
+
 ### Changed — Deck-only viewer mode (2026-05-28)
 
 - **Problem:** Top-right navigation sidebar and Slidev viewer chrome (bottom nav, overview overlay, context menu) still appeared on deployed decks despite deleting `global-top.vue`.

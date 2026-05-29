@@ -153,6 +153,10 @@ Use theme icons via `<HgIcon name="market-sizing" />` — see `.cursor/skills/hg
 - CSS shapes (circles, chevrons, numbered badges)
 - No external image URLs
 
+## HTML composition rules
+
+Inside a multi-line HTML block, **never insert blank lines** between tags. Blank lines terminate HTML parsing in Slidev; indented lines after a blank line render as raw code. Use UnoCSS spacing classes (`mt-*`, `mb-*`, `gap-*`) for visual separation. Blank lines are allowed **only** between separate root-level HTML blocks (tags at column 0).
+
 ## Forbidden patterns
 
 Do **not** include any of the following:
@@ -165,6 +169,7 @@ Do **not** include any of the following:
 - Custom Vue components other than `HgStatBox` and `HgIcon`
 - External images or assets (logos and icons are provided by the theme)
 - JavaScript blocks or `<script>` tags
+- Blank lines inside multi-line HTML blocks (indented lines after a blank render as raw code)
 
 ## Content guidelines
 
