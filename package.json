@@ -6,10 +6,12 @@
     "dev": "slidev",
     "build": "node build.js",
     "export": "slidev export",
-    "commit-deck": "node scripts/commit-deck.js"
+    "commit-deck": "node scripts/commit-deck.js",
+    "sync-decks": "node scripts/sync-decks-from-drive.js"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.0",
-    "@slidev/theme-default": "latest"
+    "@slidev/theme-default": "latest",
+    "googleapis": "^148.0.0"
   }
 }

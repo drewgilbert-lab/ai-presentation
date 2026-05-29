@@ -4,6 +4,16 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Added — Google Drive → GitHub deck sync (2026-05-29)
+
+- [`scripts/deck-validation.js`](scripts/deck-validation.js) — shared deck validation extracted from commit-deck
+- [`scripts/sync-decks-from-drive.js`](scripts/sync-decks-from-drive.js) — sync `.md` decks from a Google Shared Drive folder into `decks/`
+- [`.github/workflows/sync-decks-from-drive.yml`](.github/workflows/sync-decks-from-drive.yml) — scheduled sync every 5 minutes plus manual trigger; auto-commits to `main`
+- [`vercel.json`](vercel.json) — wildcard slug rewrites so new Drive-synced decks route without per-deck config
+- [`package.json`](package.json) — `googleapis` dependency and `sync-decks` script
+- Updated [`.env.example`](.env.example), [`README.md`](README.md), [`.cursorrules`](.cursorrules) — Drive sync admin setup and Cowork user workflow; documented production GCP service account and Shared Drive folder ID
+- [`scripts/commit-deck.js`](scripts/commit-deck.js) — imports shared validation module (behavior unchanged)
+
 ### Fixed — HTML blank-line rendering in Lenovo deck (2026-05-28)
 
 - **Problem:** Slides 4, 6, and 10 in `lenovo-account-prioritization` displayed raw HTML as text instead of rendered layouts — blank lines inside multi-line HTML blocks caused Slidev's markdown-it parser to treat indented lines as code blocks.

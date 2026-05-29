@@ -2,15 +2,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/marketing/assets/:path*", "destination": "/marketing/assets/:path*" },
-    { "source": "/marketing/:path*", "destination": "/marketing/index.html" },
-    { "source": "/sales/assets/:path*", "destination": "/sales/assets/:path*" },
-    { "source": "/sales/:path*", "destination": "/sales/index.html" },
-    { "source": "/tam-report/assets/:path*", "destination": "/tam-report/assets/:path*" },
-    { "source": "/tam-report/:path*", "destination": "/tam-report/index.html" },
-    { "source": "/invoca-cxo/assets/:path*", "destination": "/invoca-cxo/assets/:path*" },
-    { "source": "/invoca-cxo/:path*", "destination": "/invoca-cxo/index.html" },
-    { "source": "/lenovo-account-prioritization/assets/:path*", "destination": "/lenovo-account-prioritization/assets/:path*" },
-    { "source": "/lenovo-account-prioritization/:path*", "destination": "/lenovo-account-prioritization/index.html" }
+    { "source": "/:slug/assets/:path*", "destination": "/:slug/assets/:path*" },
+    { "source": "/:slug/:path*", "destination": "/:slug/index.html" }
   ]
 }
