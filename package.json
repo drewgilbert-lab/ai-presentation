@@ -7,7 +7,8 @@
     "build": "node build.js",
     "export": "slidev export",
     "commit-deck": "node scripts/commit-deck.js",
-    "sync-decks": "node scripts/sync-decks-from-drive.js"
+    "sync-decks": "node scripts/sync-decks-from-drive.js",
+    "upload-deck": "node scripts/upload-deck-to-drive.js"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.0",

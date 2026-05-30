@@ -16,10 +16,12 @@ ai-presentation/
 │   ├── uno.config.ts       # Brand colors and UnoCSS shortcuts
 │   └── style.css           # Global typography and heading styles
 ├── prompts/
-│   └── claude-system-prompt.md  # LLM instructions for generating decks
+│   └── web-deck.md         # Deck generation guide (Claude/Cowork system prompt)
 ├── scripts/
 │   ├── commit-deck.js      # Commit deck Markdown to GitHub via API
 │   ├── sync-decks-from-drive.js  # Sync decks from Google Shared Drive
+│   ├── upload-deck-to-drive.js   # Upload deck to Google Shared Drive
+│   ├── drive-client.js     # Shared Google Drive API helpers
 │   └── deck-validation.js  # Shared validation for sync and commit-deck
 ├── .github/workflows/
 │   └── sync-decks-from-drive.yml  # Scheduled Drive → GitHub sync
@@ -27,7 +29,7 @@ ai-presentation/
 └── vercel.json             # Wildcard routing rewrites per deck slug
 ```
 
-**Flow (Cowork):** Claude Cowork saves `.md` to Google Drive → GitHub Action syncs to `decks/` → Vercel build → live at `/{slug}/`.
+**Flow (Cowork):** Claude generates deck → `npm run upload-deck` or save to Google Drive → GitHub Action syncs to `decks/` → Vercel build → live at `/{slug}/`.
 
 **Flow (direct):** Markdown deck → `commit-deck` or git push → Vercel build → live at `/{slug}/`.
 
@@ -75,7 +77,7 @@ Cowork users save deck `.md` files to a shared Google Shared Drive folder. A Git
 ### Admin setup (one-time)
 
 1. **Google Cloud:** Create a project, enable the **Google Drive API**, create a **service account**, download the JSON key.
-2. **Shared Drive:** Add the service account email as **Viewer** on the shared drive (or share the specific folder).
+2. **Shared Drive:** Add the service account email as **Content manager** (upload) and **Viewer** (sync) on the shared drive folder.
 3. **GitHub secrets** (repo Settings → Secrets and variables → Actions):
    - `GDRIVE_FOLDER_ID` — folder ID from the Drive URL (`.../folders/FOLDER_ID`)
    - `GDRIVE_SERVICE_ACCOUNT_JSON` — paste the entire service account JSON
@@ -94,15 +96,23 @@ If `main` has branch protection, allow the GitHub Actions bot to bypass or use a
 | Shared Drive folder ID | `18cqtrCBfZ9w58_ZVa5mhAwVgtcgRuQbv` |
 | Folder URL | https://drive.google.com/drive/folders/18cqtrCBfZ9w58_ZVa5mhAwVgtcgRuQbv |
 
-The service account must have **Viewer** access on the folder. The JSON key lives in GitHub secret `GDRIVE_SERVICE_ACCOUNT_JSON` only — never commit it.
+The service account needs **Viewer** access for sync (`npm run sync-decks`) and **Content manager** (or Contributor) for upload (`npm run upload-deck`). The JSON key lives in GitHub secret `GDRIVE_SERVICE_ACCOUNT_JSON` only — never commit it.
 
 ### Cowork user workflow
 
-1. Generate deck in Claude Cowork using the deck skill / system prompt.
-2. Save as kebab-case `.md` (e.g. `q3-strategy.md`) in the shared Drive folder — filename becomes the live URL slug.
+1. Generate deck in Claude using [`prompts/web-deck.md`](prompts/web-deck.md) as the system prompt.
+2. Publish via `npm run upload-deck -- --file decks/{slug}.md`, or save `{slug}.md` manually to the shared Drive folder.
 3. First slide must use `layout: cover`.
-4. Deck goes live ~5 minutes after save, or immediately after a manual workflow run.
+4. Deck goes live ~5 minutes after upload, or immediately after a manual workflow run.
 5. Live URL: `https://ai-presentation-seven-omega.vercel.app/{slug}/`
+
+### Local upload test
+
+```bash
+export GDRIVE_FOLDER_ID=your_folder_id
+export GDRIVE_SERVICE_ACCOUNT_JSON='{"type":"service_account",...}'
+npm run upload-deck -- --file decks/marketing.md
+```
 
 ### Local sync test
 
@@ -165,23 +175,22 @@ Exit codes: `1` missing token, `2` file not found, `3` empty stdin, `4` validati
 
 ## LLM deck generation
 
-Use `prompts/claude-system-prompt.md` as the system prompt when asking Claude (or another LLM) to generate decks. The prompt enforces:
+Use [`prompts/web-deck.md`](prompts/web-deck.md) as the system prompt when asking Claude to generate decks. The guide covers:
 
-- Markdown-only output to `decks/{slug}.md`
+- Markdown output to `decks/{slug}.md` and publish workflow (`npm run upload-deck`)
 - Allowed layouts: `cover`, `default`
-- Allowed component: `HgStatBox`
-- HG brand UnoCSS shortcuts from `hg-theme/uno.config.ts`
-- No custom CSS, inline styles, or off-brand colors
+- Allowed components: `HgStatBox`, `HgIcon`
+- HG brand UnoCSS shortcuts, pattern library, and tabular data rules
+- No em dashes in deck copy; no custom CSS, inline styles, or off-brand colors
 
-Reference `decks/marketing.md` in your user message as the style guide.
+Reference `decks/marketing.md` for file format only.
 
 ## New deck checklist
 
-- [ ] Save `{slug}.md` with kebab-case filename to the shared Google Drive folder (Cowork) or create locally in `decks/`
+- [ ] Generate using `prompts/web-deck.md` as system prompt
+- [ ] Publish with `npm run upload-deck -- --file decks/{slug}.md` or save to shared Drive folder
 - [ ] First slide uses `layout: cover`; all others use `layout: default`
-- [ ] Follow patterns in `decks/marketing.md` (cards, stat boxes, bullet lists)
-- [ ] No inline styles, custom CSS, or non-brand colors
+- [ ] No em dashes, inline styles, custom CSS, or non-brand colors in deck copy
 - [ ] Preview locally: `npx slidev decks/{slug}.md --theme hg-theme`
-- [ ] For Cowork: wait for Drive sync or trigger the GitHub Action manually
-- [ ] For direct publish: `npm run commit-deck -- --file decks/{slug}.md` or git push
-- [ ] Verify live URL after deploy: `https://ai-presentation-seven-omega.vercel.app/{slug}/`
+- [ ] Wait ~5 minutes for Drive sync and Vercel deploy (or trigger GitHub Action manually)
+- [ ] Verify live URL: `https://ai-presentation-seven-omega.vercel.app/{slug}/`

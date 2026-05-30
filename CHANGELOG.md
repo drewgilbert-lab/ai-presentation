@@ -4,6 +4,17 @@ All notable changes to the HG Insights AI Presentation Pipeline.
 
 ## [Unreleased]
 
+### Changed — Consolidated deck prompt and Drive upload (2026-05-29)
+
+- **Problem:** Two overlapping generation docs (`.cursor/skills/hg-slidev-deck/SKILL.md` and `prompts/claude-system-prompt.md`) drifted in sync; Cowork workflow had no automated Drive upload step.
+- **Fix:**
+  - [`prompts/web-deck.md`](prompts/web-deck.md) — single canonical deck generation guide (merged skill + prompt content, no em dashes in deck copy, Custom deck length row, publish workflow with live URL response)
+  - Removed [`.cursor/skills/hg-slidev-deck/SKILL.md`](.cursor/skills/hg-slidev-deck/SKILL.md) and [`prompts/claude-system-prompt.md`](prompts/claude-system-prompt.md)
+  - [`scripts/drive-client.js`](scripts/drive-client.js) — shared Drive API helpers (read + write)
+  - [`scripts/upload-deck-to-drive.js`](scripts/upload-deck-to-drive.js) — validate, write local copy, upload to Shared Drive; `npm run upload-deck`
+  - [`scripts/sync-decks-from-drive.js`](scripts/sync-decks-from-drive.js) — refactored to use `drive-client.js`
+  - Updated [`.cursorrules`](.cursorrules), [`README.md`](README.md), [`.env.example`](.env.example) — Content manager permission for upload
+
 ### Added — Table density guardrails (2026-05-29)
 
 - **Problem:** Wide markdown tables (5+ columns, CRM-length cells) overflowed the slide canvas and rendered with overlapping text — e.g. `scoring-research-readout` slide 5.

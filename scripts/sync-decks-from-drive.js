@@ -3,85 +3,17 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { google } from 'googleapis';
+import {
+  downloadFile,
+  getDriveClient,
+  listMarkdownFiles,
+} from './drive-client.js';
 import { validateDeck } from './deck-validation.js';
 
 const decksFolder = path.resolve('./decks');
-const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.readonly';
 
 function sha256(content) {
   return crypto.createHash('sha256').update(content, 'utf8').digest('hex');
-}
-
-function getDriveClient() {
-  const folderId = process.env.GDRIVE_FOLDER_ID;
-  const serviceAccountJson = process.env.GDRIVE_SERVICE_ACCOUNT_JSON;
-
-  if (!folderId) {
-    console.error('Error: GDRIVE_FOLDER_ID environment variable is required');
-    process.exit(1);
-  }
-
-  if (!serviceAccountJson) {
-    console.error('Error: GDRIVE_SERVICE_ACCOUNT_JSON environment variable is required');
-    process.exit(1);
-  }
-
-  let credentials;
-  try {
-    credentials = JSON.parse(serviceAccountJson);
-  } catch {
-    console.error('Error: GDRIVE_SERVICE_ACCOUNT_JSON must be valid JSON');
-    process.exit(1);
-  }
-
-  const auth = new google.auth.GoogleAuth({
-    credentials,
-    scopes: [DRIVE_SCOPE],
-  });
-
-  return {
-    drive: google.drive({ version: 'v3', auth }),
-    folderId,
-  };
-}
-
-async function listMarkdownFiles(drive, folderId) {
-  const files = [];
-  let pageToken;
-
-  do {
-    const { data } = await drive.files.list({
-      q: `'${folderId}' in parents and trashed=false and name contains '.md'`,
-      fields: 'nextPageToken, files(id, name, modifiedTime)',
-      supportsAllDrives: true,
-      includeItemsFromAllDrives: true,
-      pageToken,
-    });
-
-    for (const file of data.files ?? []) {
-      if (file.name.endsWith('.md')) {
-        files.push(file);
-      }
-    }
-
-    pageToken = data.nextPageToken;
-  } while (pageToken);
-
-  return files;
-}
-
-async function downloadFile(drive, fileId) {
-  const { data } = await drive.files.get(
-    {
-      fileId,
-      alt: 'media',
-      supportsAllDrives: true,
-    },
-    { responseType: 'text' },
-  );
-
-  return data;
 }
 
 function writeDeckIfChanged(slug, content, summary) {
