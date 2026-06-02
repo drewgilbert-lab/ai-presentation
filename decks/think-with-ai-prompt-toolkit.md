@@ -11,7 +11,7 @@ layout: default
 
 # What We're Doing Today
 
-<div class="mt-6 text-[15px] text-hg-dark max-w-3xl">Most people use AI like a search engine: one prompt, one answer, move on. Today we change that. You'll learn how to actually have a conversation with AI — how to push back, go deeper, and get output that reflects your thinking instead of a generic first draft.</div>
+<div class="mt-6 text-[15px] text-hg-dark max-w-3xl">Most people use AI like a search engine: one prompt, one answer, move on. Today we change that. You'll learn how to actually have a conversation with AI: how to push back, go deeper, and get output that reflects your thinking instead of a generic first draft.</div>
 <div class="grid grid-cols-4 gap-4 mt-8">
   <div class="bg-hg-gray rounded-lg p-4 border-t-4 border-hg-navy text-center">
     <div class="text-hg-navy font-bold text-[13px] uppercase tracking-wide mb-2">The Shift</div>
@@ -50,14 +50,14 @@ layout: default
       <div class="flex-shrink-0 w-10 h-10 rounded-full bg-hg-royal text-white flex items-center justify-center font-bold text-[16px]">2</div>
       <div>
         <div class="font-bold text-hg-navy text-[15px]">Pressure-tested before anyone else sees it</div>
-        <div class="text-[14px] text-hg-dark mt-1">You'll catch the weak spots yourself — before your manager, your customer, or your critic does.</div>
+        <div class="text-[14px] text-hg-dark mt-1">You'll catch the weak spots yourself, before your manager, your customer, or your critic does.</div>
       </div>
     </div>
     <div class="flex items-start gap-4">
       <div class="flex-shrink-0 w-10 h-10 rounded-full bg-hg-medium text-white flex items-center justify-center font-bold text-[16px]">3</div>
       <div>
         <div class="font-bold text-hg-navy text-[15px]">Work that moves people</div>
-        <div class="text-[14px] text-hg-dark mt-1">More specific, more original, and more likely to land — because it reflects your thinking, not a generic first draft.</div>
+        <div class="text-[14px] text-hg-dark mt-1">More specific, more original, and more likely to land, because it reflects your thinking, not a generic first draft.</div>
       </div>
     </div>
   </div>
@@ -215,7 +215,7 @@ layout: default
   </div>
   <div class="bg-hg-light rounded-xl p-6 border-l-4 border-hg-royal">
     <div class="font-bold text-hg-navy text-[13px] uppercase tracking-wide mb-3">Example</div>
-    <div class="text-[14px] text-hg-dark italic">"Success is a marketing leader reading this one-pager and immediately seeing how it maps to a pipeline problem they already have — not something new they have to be convinced to care about."</div>
+    <div class="text-[14px] text-hg-dark italic">"Success is a marketing leader reading this one-pager and immediately seeing how it maps to a pipeline problem they already have, not something new they have to be convinced to care about."</div>
   </div>
 </div>
 
