@@ -253,7 +253,7 @@ layout: default
       </div>
       <div class="bg-hg-light rounded-lg p-3 text-center shadow flex flex-col items-center gap-1">
         <div class="text-hg-navy text-[20px]">📄</div>
-        <div class="text-[11px] font-bold text-hg-navy">White Paper</div>
+        <div class="text-hg-navy text-[11px] font-bold">White Paper</div>
         <div class="w-4 h-4 rounded-full bg-hg-medium flex items-center justify-center text-white text-[9px] font-bold mt-1">✓</div>
       </div>
       <div class="bg-hg-light rounded-lg p-3 text-center shadow flex flex-col items-center gap-1">
