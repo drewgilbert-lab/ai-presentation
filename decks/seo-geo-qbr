@@ -1,0 +1,323 @@
+---
+layout: cover
+---
+
+# SEO/GEO Workflow Development
+Quarterly Business Review: Engagement Status
+
+---
+layout: default
+---
+
+# Four Workflows. All Delivered.
+
+<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-hg-navy text-white flex items-center justify-center font-bold text-[13px]">1</div>
+<div>
+<div class="font-bold text-hg-navy text-[14px]">AI Search Term Prioritization Dashboard</div>
+<div class="text-[13px] text-hg-dark">Due 3/31 - Active and producing citation gap reports on schedule</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-hg-navy text-white flex items-center justify-center font-bold text-[13px]">2</div>
+<div>
+<div class="font-bold text-hg-navy text-[14px]">Content / Keyword Refresh Grid</div>
+<div class="text-[13px] text-hg-dark">Due 4/30 - Active and in use. Process documented and repeatable</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-hg-navy text-white flex items-center justify-center font-bold text-[13px]">3</div>
+<div>
+<div class="font-bold text-hg-navy text-[14px]">Internal Linking Automation</div>
+<div class="text-[13px] text-hg-dark">Due 5/31 - Complete and operating through a custom-built process</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-hg-navy text-white flex items-center justify-center font-bold text-[13px]">4</div>
+<div>
+<div class="font-bold text-hg-navy text-[14px]">Reddit Comment Recommendations</div>
+<div class="text-[13px] text-hg-dark">Due 6/30 - Live in 321signals.com, actively in use by the team</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col justify-center items-center gap-4">
+<div class="hg-stat-box w-full py-8">
+<div class="hg-stat-num text-[48px]">4/4</div>
+<div class="hg-stat-label">Workflows Delivered On Schedule</div>
+</div>
+<div class="border-l-4 border-hg-royal bg-hg-light pl-4 py-3 rounded-r-md w-full">
+<div class="text-[13px] text-hg-dark font-bold">Success criterion met: all workflows documented, delivered, and active.</div>
+</div>
+</div>
+</div>
+
+---
+layout: default
+---
+
+# Everything Built Is Being Used
+
+<div class="flex items-start gap-8 mt-6">
+<div class="flex-1 flex flex-col gap-4">
+<div class="hg-card">
+<div class="hg-card-header">AI Search Term Prioritization Dashboard</div>
+<div class="hg-card-body">Active for citation gap reporting. Split into Use Case and Competitor Alternative campaigns so the team can target one use case at a time.</div>
+</div>
+<div class="hg-card">
+<div class="hg-card-header">Content / Keyword Refresh Grid</div>
+<div class="hg-card-body">In use and applied to plan 15 titles for Q2.</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-4">
+<div class="hg-card">
+<div class="hg-card-header">Internal Linking Automation</div>
+<div class="hg-card-body">Running and inserting blog-level link recommendations for marketing team review before publication.</div>
+</div>
+<div class="hg-card">
+<div class="hg-card-header">Reddit Comment Recommendations</div>
+<div class="hg-card-body">Live in 321signals.com. HG Insights team members actively using it to draft responses that generate citations.</div>
+</div>
+</div>
+</div>
+<div class="mt-6 border-l-4 border-hg-navy bg-hg-light pl-4 py-3 rounded-r-md">
+<div class="font-bold text-hg-navy text-[15px]">These are not tools on a shelf. They are in use.</div>
+</div>
+
+---
+layout: default
+---
+
+# Lessons Learned: What Made This Work
+
+<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="flex items-start gap-3">
+<div class="flex-shrink-0 w-7 h-7 rounded-full bg-hg-royal text-white flex items-center justify-center font-bold text-[12px]">1</div>
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Dashboard improved beyond the baseline</div>
+<div class="text-[12px] text-hg-dark mt-1">Prompts tagged by use case, split into two campaigns. Set tightened to under 200, which improved data quality rather than just preserving volume.</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="flex-shrink-0 w-7 h-7 rounded-full bg-hg-royal text-white flex items-center justify-center font-bold text-[12px]">2</div>
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Title recommendation engine built for Refresh Grid</div>
+<div class="text-[12px] text-hg-dark mt-1">Recommends titles by comparing existing content against gaps and competitor citation topics. Used to plan 15 Q2 titles.</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="flex-shrink-0 w-7 h-7 rounded-full bg-hg-royal text-white flex items-center justify-center font-bold text-[12px]">3</div>
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Custom internal linking process</div>
+<div class="text-[12px] text-hg-dark mt-1">Reads only relevant blog content. Reviews sitemap across use case, product, and blog pages, finds opportunities, and inserts recommendations for marketing review.</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="flex-shrink-0 w-7 h-7 rounded-full bg-hg-royal text-white flex items-center justify-center font-bold text-[12px]">4</div>
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Python + Claude Sonnet extends the platform</div>
+<div class="text-[12px] text-hg-dark mt-1">Pairing deterministic Python with Claude Sonnet inside AirOps lets us build past off-the-shelf functionality. Pulling data through AirOps' own API is now our default approach.</div>
+</div>
+</div>
+<div class="flex items-start gap-3 col-span-2">
+<div class="flex-shrink-0 w-7 h-7 rounded-full bg-hg-red text-white flex items-center justify-center font-bold text-[12px]">!</div>
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Elementor requires careful DOM-level scripting for WordPress push</div>
+<div class="text-[12px] text-hg-dark mt-1">HG's site stores serialized page-builder data, not clean post HTML. A naive write can break layouts. Mitigation: control the integration with proper HTML/DOM scripting in Python, parse and write into Elementor's structure deliberately, validate on staging first. We are planning for this, not discovering it mid-build.</div>
+</div>
+</div>
+</div>
+
+---
+layout: default
+---
+
+# Where This Is Headed: One Connected Pipeline
+
+<div class="mt-6 flex items-start gap-6">
+<div class="flex-1">
+<div class="text-[13px] text-hg-dark mb-4">The four workflows are proven. The next phase connects them into a single flow, with AirOps pushing directly into WordPress and only an SME review step in between.</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 bg-hg-light rounded-lg p-3">
+<HgIcon name="insight-visualization" size="36px" />
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Keyword Analysis</div>
+<div class="text-[12px] text-hg-dark">AirOps citation gap + refresh recommendations</div>
+</div>
+</div>
+<div class="flex justify-center text-hg-royal font-bold text-xl">↓</div>
+<div class="flex items-center gap-3 bg-hg-light rounded-lg p-3">
+<HgIcon name="ai-copilot" size="36px" />
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Content Creation</div>
+<div class="text-[12px] text-hg-dark">Brief generation and draft production</div>
+</div>
+</div>
+<div class="flex justify-center text-hg-royal font-bold text-xl">↓</div>
+<div class="flex items-center gap-3 bg-hg-light rounded-lg p-3">
+<HgIcon name="gtm-efficiency" size="36px" />
+<div>
+<div class="font-bold text-hg-navy text-[13px]">Internal Linking + QA</div>
+<div class="text-[12px] text-hg-dark">Automated recommendations inserted, reviewed by team</div>
+</div>
+</div>
+<div class="flex justify-center text-hg-royal font-bold text-xl">↓</div>
+<div class="flex items-center gap-3 bg-hg-light rounded-lg p-3">
+<HgIcon name="solution" size="36px" />
+<div>
+<div class="font-bold text-hg-navy text-[13px]">WordPress Publish</div>
+<div class="text-[12px] text-hg-dark">SME review is the only manual step</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-56 flex flex-col gap-3">
+<div class="hg-card">
+<div class="hg-card-header">In Progress Now</div>
+<div class="hg-card-body">AirOps to WordPress integration. Internal Linking Automation extended first. Content refresh and net-new to follow.</div>
+</div>
+<div class="border-l-4 border-hg-purple bg-hg-light pl-4 py-3 rounded-r-md">
+<div class="text-[12px] font-bold text-hg-navy">Goal: analysis to live page with one review step.</div>
+</div>
+</div>
+</div>
+
+---
+layout: default
+---
+
+# Recommended Next Projects
+
+<div class="mt-4 grid grid-cols-3 gap-5">
+<div>
+<div class="font-bold text-hg-navy text-[14px] mb-3 uppercase tracking-wide text-[11px]">Content Quality</div>
+<div class="flex flex-col gap-3">
+<div class="hg-card">
+<div class="hg-card-header">Automated Content QA</div>
+<div class="hg-card-body">
+<div class="text-[12px] mb-1">Staged rollout:</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0 rounded-full bg-hg-light text-hg-navy text-[11px] font-bold">Grammar + Formatting</span>
+<span class="px-2 py-0 rounded-full bg-hg-light text-hg-navy text-[11px] font-bold">Style + Brand Voice</span>
+<span class="px-2 py-0 rounded-full bg-hg-light text-hg-navy text-[11px] font-bold">SEO QA</span>
+<span class="px-2 py-0 rounded-full bg-hg-light text-hg-navy text-[11px] font-bold">Data Accuracy</span>
+</div>
+<div class="text-[11px] mt-2 text-hg-dark">Addresses blogs published outside marketing with formatting and grammar issues.</div>
+</div>
+</div>
+<div class="hg-card">
+<div class="hg-card-header">Net-New Content Pipeline</div>
+<div class="hg-card-body">Title rec feeds brief, brief feeds draft, draft routes to SME, approved draft pushes to WordPress. End-to-end with humans only at review.</div>
+</div>
+</div>
+</div>
+<div>
+<div class="font-bold text-hg-navy text-[14px] mb-3 uppercase tracking-wide text-[11px]">Ranking Protection</div>
+<div class="flex flex-col gap-3">
+<div class="hg-card">
+<div class="hg-card-header">Cannibalization Detection</div>
+<div class="hg-card-body">Flags pages competing for the same keyword so HG Insights can consolidate or differentiate, protecting existing ranking strength.</div>
+</div>
+<div class="hg-card">
+<div class="hg-card-header">Keyword-to-Page Decision Engine</div>
+<div class="hg-card-body">Scores whether a keyword deserves its own page or should fold into a larger set, using intent overlap, SERP similarity, and existing coverage.</div>
+</div>
+</div>
+</div>
+<div>
+<div class="font-bold text-hg-navy text-[14px] mb-3 uppercase tracking-wide text-[11px]">Python Analysis Engines</div>
+<div class="flex flex-col gap-3">
+<div class="hg-card">
+<div class="hg-card-header">Keyword Clustering by SERP Overlap</div>
+<div class="hg-card-body">Groups keywords into page-level topics based on ranking result overlap, so content maps to how engines actually cluster intent.</div>
+</div>
+<div class="hg-card">
+<div class="hg-card-header">Content Decay Scoring</div>
+<div class="hg-card-body">Deterministic score per URL from traffic trend, citation trend, and content age. Ranks refresh priority by math, not judgment.</div>
+</div>
+<div class="hg-card">
+<div class="hg-card-header">Internal Link Gap Scoring</div>
+<div class="hg-card-body">Quantifies under-linked pages relative to importance, feeding the linking automation with a priority order.</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+layout: default
+---
+
+# Suggested Delivery Cadence: Next Two Quarters
+
+<div class="mt-5">
+<div class="grid grid-cols-6 gap-2 mb-2">
+<div class="text-[11px] font-bold text-hg-navy uppercase tracking-wide">Cycle</div>
+<div class="col-span-3 text-[11px] font-bold text-hg-navy uppercase tracking-wide">Project</div>
+<div class="col-span-2 text-[11px] font-bold text-hg-navy uppercase tracking-wide">Why This Slot</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="grid grid-cols-6 gap-2 bg-hg-navy text-white rounded-lg p-3 items-center">
+<div class="text-[13px] font-bold">1</div>
+<div class="col-span-3 text-[13px] font-bold">AirOps to WordPress Integration</div>
+<div class="col-span-2 text-[12px] opacity-90">Foundation. Enables net-new content and scheduled refresh later.</div>
+</div>
+<div class="grid grid-cols-6 gap-2 bg-hg-royal text-white rounded-lg p-3 items-center">
+<div class="text-[13px] font-bold">2</div>
+<div class="col-span-3 text-[13px] font-bold">Automated Content QA (grammar + formatting first)</div>
+<div class="col-span-2 text-[12px] opacity-90">Addresses blogs published with errors. Highest-urgency item.</div>
+</div>
+<div class="grid grid-cols-6 gap-2 bg-hg-medium text-white rounded-lg p-3 items-center">
+<div class="text-[13px] font-bold">3</div>
+<div class="col-span-3 text-[13px] font-bold">Keyword-to-Page Decision Engine</div>
+<div class="col-span-2 text-[12px] opacity-90">Pure-Python, fast to ship, sharpens every content decision that follows.</div>
+</div>
+<div class="grid grid-cols-6 gap-2 bg-hg-light rounded-lg p-3 items-center">
+<div class="text-[13px] font-bold text-hg-navy">4</div>
+<div class="col-span-3 text-[13px] font-bold text-hg-navy">Cannibalization and Overlap Detection</div>
+<div class="col-span-2 text-[12px] text-hg-dark">Builds on keyword work in Cycle 3; protects existing ranking strength.</div>
+</div>
+<div class="grid grid-cols-6 gap-2 bg-hg-light rounded-lg p-3 items-center">
+<div class="text-[13px] font-bold text-hg-navy">5</div>
+<div class="col-span-3 text-[13px] font-bold text-hg-navy">QA Expansion (style, SEO, data accuracy)</div>
+<div class="col-span-2 text-[12px] text-hg-dark">Layers deeper QA checks once the baseline is proven and adopted.</div>
+</div>
+<div class="grid grid-cols-6 gap-2 bg-hg-light rounded-lg p-3 items-center">
+<div class="text-[13px] font-bold text-hg-navy">6</div>
+<div class="col-span-3 text-[13px] font-bold text-hg-navy">Net-New Content Generation Pipeline</div>
+<div class="col-span-2 text-[12px] text-hg-dark">Ties together WordPress, QA, and keyword work into one end-to-end flow.</div>
+</div>
+</div>
+<div class="mt-4 text-[12px] text-hg-dark italic">One completed project every 4 to 6 weeks. Sequence is a recommendation, not a contract. Priorities set together with Drew Gilbert and the team.</div>
+</div>
+
+---
+layout: default
+---
+
+# Thank You
+
+<div class="flex items-start gap-10 mt-8">
+<div class="flex-1">
+<div class="text-[15px] text-hg-dark leading-relaxed mb-6">The progress this quarter reflects a true working partnership. Andrew Dennis has been a welcome addition to the team and a valuable SEO subject matter expert, and his input has made each workflow sharper.</div>
+<div class="text-[15px] text-hg-dark leading-relaxed">The close collaboration with Drew Gilbert and Andrew is a meaningful part of why these deliverables landed on schedule and are in active use.</div>
+<div class="mt-8 border-l-4 border-hg-royal bg-hg-light pl-6 py-4 rounded-r-md">
+<div class="font-bold text-hg-navy text-[16px] mb-1">Bottom Line</div>
+<div class="text-[14px] text-hg-dark">Four of four workflows delivered. All documented, on schedule, and active. The foundation is in place; now we build the pipeline.</div>
+</div>
+</div>
+<div class="w-56 flex flex-col gap-4">
+<div class="hg-stat-box py-6">
+<div class="hg-stat-num">4/4</div>
+<div class="hg-stat-label">Workflows Delivered</div>
+</div>
+<div class="hg-stat-box py-6">
+<div class="hg-stat-num">100%</div>
+<div class="hg-stat-label">On Schedule</div>
+</div>
+<div class="hg-stat-box py-6">
+<div class="hg-stat-num">All</div>
+<div class="hg-stat-label">In Active Use</div>
+</div>
+</div>
+</div>
